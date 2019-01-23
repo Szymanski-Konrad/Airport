@@ -102,9 +102,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Airport.cs" />
+    <Compile Include="Model\AirportService.cs" />
+    <Compile Include="Model\Booking.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\Discount.cs" />
+    <Compile Include="Model\Firm.cs" />
+    <Compile Include="Model\Fleet.cs" />
+    <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\NHiberControl.cs" />
+    <Compile Include="Model\PlaneMarket.cs" />
+    <Compile Include="Model\PlaneService.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Service.cs" />
     <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Ticket.cs" />
+    <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
