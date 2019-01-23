@@ -8,6 +8,7 @@ namespace NHiber.Tables
 {
     class Fleet
     {
+        public int id { get; set; }
         public int idPlane { get; set; }
         public string planeCondition { get; set; }
         public string capacityGasTank { get; set; }

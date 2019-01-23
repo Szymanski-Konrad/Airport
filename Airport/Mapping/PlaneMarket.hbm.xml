@@ -1,1 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Airport"
+                   namespace="Airport.Model"
+                   auto-import="true">
+  <class name="PlaneMarket" table="PlaneMarket" lazy="false">
+    <id name="id">
+      <generator class="native" />
+    </id>
+    <property name="brand" column="brand"/>
+    <property name="price" column="price" />
+    <property name="capacityPersons" column="capacityPersons" />
+    <property name="capacityLuggage" column="capacityLuggage" />
+    <property name="range" column="range" />
+    <property name="isSecondHand" column="isSecondHand" />
+  </class>
+</hibernate-mapping>

@@ -1,1 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Airport"
+                   namespace="Airport.Model"
+                   auto-import="true">
+  <class name="Fleet" table="Fleet" lazy="false">
+    <id name="id">
+      <generator class="native" />
+    </id>
+    <property name="idPlane" column="idPlane" />
+    <property name="planeCondition" column="planeCondition"/>
+    <property name="Category" column="capacityGasTank" />
+    <property name="Discounted" column="Discounted" />
+  </class>
+</hibernate-mapping>

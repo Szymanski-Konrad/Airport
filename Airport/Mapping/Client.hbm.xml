@@ -1,1 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Airport"
+                   namespace="Airport.Model"
+                   auto-import="true">
+  <class name="Client" table="Client" lazy="false">
+    <id name="id">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="Name"/>
+    <property name="Surname" column="Surname" />
+    <property name="isMale" column="isMale" />
+    <property name="milesTraveled" column="milesTraveled" />
+    <property name="age" column="age" />
+  </class>
+</hibernate-mapping>
