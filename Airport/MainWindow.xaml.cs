@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Airport.Model;
+
 namespace Airport
 {
     /// <summary>
@@ -23,6 +25,9 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
+            NHiberControl.SaveGame();
+            NHiberControl.SaveGame();
+            NHiberControl.LoadGames();
         }
     }
 }

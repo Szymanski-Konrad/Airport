@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Airport"
+                   namespace="Airport.Model"
+                   auto-import="true">
+  <class name="Product" table="Produkty" lazy="false">
+    <id name="id">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="Name"/>
+    <property name="Category" column="Category" />
+    <property name="Discounted" column="Discounted" />
+  </class>
+</hibernate-mapping>
