@@ -162,6 +162,20 @@
       <DependentUpon>Database1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Mapping\Warehouse.hbm.xml" />
+    <Resource Include="Mapping\Ticket.hbm.xml" />
+    <Resource Include="Mapping\Service.hbm.xml" />
+    <Resource Include="Mapping\PlaneService.hbm.xml" />
+    <Resource Include="Mapping\PlaneMarket.hbm.xml" />
+    <Resource Include="Mapping\Flight.hbm.xml" />
+    <Resource Include="Mapping\Fleet.hbm.xml" />
+    <Resource Include="Mapping\Firm.hbm.xml" />
+    <Resource Include="Mapping\Discount.hbm.xml" />
+    <Resource Include="Mapping\Connection.hbm.xml" />
+    <Resource Include="Mapping\Client.hbm.xml" />
+    <Resource Include="Mapping\Booking.hbm.xml" />
+    <Resource Include="Mapping\AirportService.hbm.xml" />
+    <Resource Include="Mapping\Airport.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
