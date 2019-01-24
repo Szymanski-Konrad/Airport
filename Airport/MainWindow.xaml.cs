@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Airport.Model;
+using Airport.Page;
 
 namespace Airport
 {
@@ -30,9 +31,30 @@ namespace Airport
             NHiberControl.LoadGames();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FirmWindow_Click(object sender, RoutedEventArgs e)
         {
+            new FirmWindow().ShowDialog();
+        }
 
+        private void ClientWindow_Click(object sender, RoutedEventArgs e)
+        {
+            new ClientWindow().ShowDialog();
+        }
+
+        public void Navigate(UserControl nextPage)
+        {
+            this.Content = nextPage;
+        }
+
+        public void Navigate(UserControl nextPage, object state)
+        {
+            this.Content = nextPage;
+            ISwitchable s = nextPage as ISwitchable;
+
+            if (s != null)
+                s.UtilizeState(state);
+            else
+                throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
         }
     }
 }
