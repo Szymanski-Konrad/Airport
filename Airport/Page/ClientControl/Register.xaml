@@ -8,12 +8,14 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <Grid>
         <Label Content="IMIĘ" HorizontalAlignment="Left" Margin="94,291,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="175,291,0,0" TextWrapping="Wrap" Text="wpisz imię" VerticalAlignment="Top" Width="120"/>
-        <Label Content="NAZWISKO" HorizontalAlignment="Left" Margin="94,315,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="175,319,0,0" TextWrapping="Wrap" Text="wpisz nazwisko" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="175,294,0,0" TextWrapping="Wrap" Text="wpisz imię" VerticalAlignment="Top" Width="120"/>
+        <Label Content="NAZWISKO" HorizontalAlignment="Left" Margin="94,319,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="surname" HorizontalAlignment="Left" Height="23" Margin="175,322,0,0" TextWrapping="Wrap" Text="wpisz nazwisko" VerticalAlignment="Top" Width="120"/>
         <Button Content="ZAREJESTRUJ" HorizontalAlignment="Right" VerticalAlignment="Top" Width="397" Height="450" FontSize="20" Margin="0,0,0,-0.4" BorderBrush="{x:Null}" Background="{x:Null}" Click="RegisterButton_Click"/>
         <Label Content="WPROWADŹ SWOJE DANE" HorizontalAlignment="Left" Margin="94,114,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="WIEK" HorizontalAlignment="Left" Margin="94,343,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="175,347,0,0" TextWrapping="Wrap" Text="wpisz wiek" VerticalAlignment="Top" Width="120"/>
+        <Label Content="WIEK" HorizontalAlignment="Left" Margin="94,347,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="age" HorizontalAlignment="Left" Height="23" Margin="175,350,0,0" TextWrapping="Wrap" Text="wpisz wiek" VerticalAlignment="Top" Width="120"/>
+        <Label Content="PŁEĆ" HorizontalAlignment="Left" Margin="94,373,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="isMale" Content="MALE" HorizontalAlignment="Left" Margin="175,379,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

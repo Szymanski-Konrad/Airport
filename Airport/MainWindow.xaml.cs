@@ -26,10 +26,12 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
-            NHiberControl.SaveGame();
+            //NHiberControl.SaveGame();
             //NHiberControl.SaveGame();
             //NHiberControl.LoadGames();
             //NHiberControl.InsertFirm();
+            NHiberControl.SaveClient();
+            NHiberControl.LoadClients();
         }
 
         private void FirmWindow_Click(object sender, RoutedEventArgs e)
