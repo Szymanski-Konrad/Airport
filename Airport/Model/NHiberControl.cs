@@ -28,6 +28,28 @@ namespace Airport.Model
             }
         }
 
+        public static void LoadClients()
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Client order by Name asc");
+                if (query != null)
+                {
+                    IList<Client> clients = query.List<Client>();
+                    MessageBox.Show("znalezieni klienci: " + clients.Count.ToString());
+                    foreach (Client client in clients)
+                    {
+                        MessageBox.Show(client.Name + ", " + client.Surname);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("query is null");
+                }
+            }
+        }
+
         public static void LoadGames()
         {
             using (ISession session = Session.OpenSession())
@@ -58,6 +80,27 @@ namespace Airport.Model
                 }
 
                 MessageBox.Show("Saved product to database");
+            }
+        }
+
+        public static void SaveClient()
+        {
+            Client client = new Client();
+            client.Name = "Joy";
+            client.Surname = "En";
+            client.isMale = false;
+            client.milesTraveled = 0;
+            client.age = 18;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(client);
+                    transaction.Commit();
+                }
+
+                MessageBox.Show("Saved client to database");
             }
         }
     }

@@ -26,6 +26,7 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
+            //NHiberControl.SaveClient();
             //NHiberControl.SaveGame();
             //NHiberControl.SaveGame();
             //NHiberControl.LoadGames();
