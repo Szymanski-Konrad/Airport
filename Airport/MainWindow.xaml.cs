@@ -27,7 +27,7 @@ namespace Airport
             InitializeComponent();
             //NHiberControl.SaveGame();
             //NHiberControl.SaveGame();
-            //NHiberControl.LoadGames();
+            NHiberControl.LoadGames();
         }
     }
 }
