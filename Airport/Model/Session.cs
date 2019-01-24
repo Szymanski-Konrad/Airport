@@ -14,16 +14,15 @@ namespace Airport.Model
     {
         static ISessionFactory factory;
         
-
         public static ISession OpenSession()
         {
             if (factory == null)
             {
                 Configuration c = new Configuration();
                 c.Configure();
-                c.AddAssembly(typeof(Firm).Assembly);
+                //c.AddAssembly(typeof(Firm).Assembly);
+                c.AddAssembly(Assembly.GetCallingAssembly());
                 new SchemaExport(c).Execute(true, true, false);
-                //c.AddAssembly(Assembly.GetCallingAssembly());
                 factory = c.BuildSessionFactory();
             }
 
