@@ -30,6 +30,11 @@ namespace Airport
             NHiberControl.LoadGames();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;

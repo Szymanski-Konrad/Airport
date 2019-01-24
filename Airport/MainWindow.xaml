@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="138,104,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="292,104,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="442,104,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="597,104,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Firma" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="397" Height="330" BorderThickness="0" Background="IndianRed"/>
+        <Button Content="Klient" HorizontalAlignment="Left" Margin="397,90,-0.4,0" VerticalAlignment="Top" Width="397" BorderThickness="0" Background="AliceBlue" Height="330" Click="Button_Click"/>
+        <Label Content="CHOOSE YOUR SIDE" HorizontalAlignment="Left" Margin="343,57,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
