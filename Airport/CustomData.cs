@@ -35,7 +35,6 @@ namespace Airport
                 capacityLuggage = 500,
                 capacityPersons = 200,
                 id = 1,
-                isSecondHand = false,
                 price = 5000,
                 range = 10000,
                 
@@ -47,7 +46,6 @@ namespace Airport
                 capacityLuggage = 500,
                 capacityPersons = 200,
                 id = 4,
-                isSecondHand = false,
                 price = 5000,
                 range = 10000,
 
@@ -59,7 +57,6 @@ namespace Airport
                 capacityLuggage = 500,
                 capacityPersons = 200,
                 id = 3,
-                isSecondHand = false,
                 price = 5000,
                 range = 10000,
 
@@ -71,13 +68,43 @@ namespace Airport
                 capacityLuggage = 500,
                 capacityPersons = 200,
                 id = 2,
-                isSecondHand = false,
                 price = 5000,
                 range = 10000,
 
             });
 
             return list;
+        }
+
+        public static List<AirportMarket> GetBuyAirportList()
+        {
+            return new List<AirportMarket>()
+            {
+                new AirportMarket()
+                {
+                    bought = false,
+                    id = 1,
+                    name = "Warszawa"
+                },
+                new AirportMarket()
+                {
+                    bought = false,
+                    id = 2,
+                    name = "Kolno"
+                },
+                new AirportMarket()
+                {
+                    bought = false,
+                    id = 3,
+                    name = "Bialystok"
+                },
+                new AirportMarket()
+                {
+                    bought = false,
+                    id = 4,
+                    name = "Gdansk"
+                },
+            };
         }
     }
 }

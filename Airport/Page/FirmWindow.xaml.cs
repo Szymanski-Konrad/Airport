@@ -34,7 +34,7 @@ namespace Airport.Page
         private void AirportPage_Click(object sender, RoutedEventArgs e)
         {
             //Switcher.SwitchFirm(new Page.Firm.AirportPage());
-            frame.NavigationService.Navigate(new Page.Firm.AirportPage());
+            frame.NavigationService.Navigate(new Page.Firm.AirportMarketPage());
         }
 
         private void Discount_Click(object sender, RoutedEventArgs e)
@@ -45,6 +45,11 @@ namespace Airport.Page
         private void Planes_Click(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new Page.Firm.FleetPage());
+        }
+
+        public void NavigateOnFrame(UserControl nextPage)
+        {
+            frame.NavigationService.Navigate(nextPage);
         }
 
         public void Navigate(UserControl nextPage)

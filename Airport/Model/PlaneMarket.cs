@@ -15,6 +15,5 @@ namespace Airport.Model
         public int capacityLuggage { get; set; }
         public int capacityGasTank { get; set; }
         public int range { get; set; }
-        public bool isSecondHand { get; set; }
     }
 }

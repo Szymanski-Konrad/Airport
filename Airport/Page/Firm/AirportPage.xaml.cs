@@ -20,7 +20,7 @@ namespace Airport.Page.Firm
     /// </summary>
     public partial class AirportPage : UserControl
     {
-        public AirportPage()
+        public AirportPage(Model.Airport airport)
         {
             InitializeComponent();
         }

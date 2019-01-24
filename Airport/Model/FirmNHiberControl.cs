@@ -43,13 +43,19 @@ namespace Airport.Model
 
         }
 
-        public static void BuyAirport(Airport airport)
+        public static void BuyAirport(AirportMarket airport)
         {
+            Airport newAirport = new Airport();
+            newAirport.name = airport.name;
+
+            airport.bought = true;
+
             using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(airport);
+                    session.Update(airport);
+                    session.Save(newAirport);
                     transaction.Commit();
                 }
             }
@@ -80,6 +86,49 @@ namespace Airport.Model
             }
 
             return list;
+        }
+
+        public static List<AirportMarket> GetAirportMarkets()
+        {
+            List<AirportMarket> list = new List<AirportMarket>();
+            
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<AirportMarket>().Where(x => x.bought == false).ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static List<Model.Airport> GetAirports()
+        {
+            List<Model.Airport> list = new List<Airport>();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<Airport>().ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static void SaveAirportMarkets(List<AirportMarket> airportMarkets)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using  (ITransaction transaction = session.BeginTransaction())
+                {
+                    foreach (var item in airportMarkets)
+                        session.Save(item);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

@@ -12,9 +12,8 @@
             <Button Content="Kup nowy samolot" Margin="5" Click="NewAirplane_Click"/>
         </StackPanel>
         <Grid>
-            <DataGrid Name="Fleet_DataGrid" SelectionChanged="Fleet_DataGrid_SelectionChanged"/>
+            <DataGrid Name="Fleet_DataGrid" SelectionChanged="Fleet_DataGrid_SelectionChanged" Visibility="Collapsed"/>
             <DataGrid Name="newAirplanes_DataGrid" SelectionChanged="NewAirplanes_DataGrid_SelectionChanged" Visibility="Collapsed"/>
-
         </Grid>
     </DockPanel>
 </UserControl>

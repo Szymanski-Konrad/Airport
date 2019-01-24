@@ -60,7 +60,6 @@ namespace Airport.Page.Firm
             Fleet fleet = Fleet_DataGrid.SelectedItem as Fleet;
             if (fleet != null)
             {
-                //GameStats.account +=
                 FirmNHiberControl.SoldPlane(fleet);
                 Fleet_DataGrid.ItemsSource = FirmNHiberControl.GetFleets();
             }
