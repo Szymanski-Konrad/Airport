@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Airport.Model;
+using Airport.Page;
 
 namespace Airport
 {
@@ -30,9 +31,14 @@ namespace Airport
             NHiberControl.LoadGames();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FirmWindow_Click(object sender, RoutedEventArgs e)
         {
+            new FirmWindow().ShowDialog();
+        }
 
+        private void ClientWindow_Click(object sender, RoutedEventArgs e)
+        {
+            new ClientWindow().ShowDialog();
         }
 
         public void Navigate(UserControl nextPage)
