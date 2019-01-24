@@ -32,6 +32,7 @@ namespace Airport
             //NHiberControl.InsertFirm();
             NHiberControl.SaveClient();
             NHiberControl.LoadClients();
+            NHiberControl.SaveFlight();
         }
 
         private void FirmWindow_Click(object sender, RoutedEventArgs e)

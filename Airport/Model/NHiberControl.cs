@@ -78,7 +78,7 @@ namespace Airport.Model
 
         public static List<Client> LoadClientsToList()
         {
-            Debug.Print($"NHiberControl method LoadClientsList called.");
+            Debug.Print($"NHiberControl method LoadClientsToList called.");
             using (ISession session = Session.OpenSession())
             {
                 IQuery query = session.CreateQuery("from Client order by Name asc");
@@ -92,6 +92,26 @@ namespace Airport.Model
                 {
                     Debug.Print("Query is null.");
                     return new List<Client>();
+                }
+            }
+        }
+
+        public static List<Flight> LoadFlightsToList()
+        {
+            Debug.Print($"NHiberControl method LoadFlightsToList called.");
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Flight order by id asc");
+                if (query != null)
+                {
+                    IList<Flight> flights = query.List<Flight>();
+                    Debug.Print("Flights found: " + flights.Count.ToString());
+                    return (List<Flight>)flights;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Flight>();
                 }
             }
         }
@@ -151,6 +171,25 @@ namespace Airport.Model
                     session.Save(client);
                     transaction.Commit();
                     Debug.Print("Saved client to database.");
+                }
+            }
+        }
+
+        public static void SaveFlight()
+        {
+            Debug.Print($"NHiberControl method SaveFlight called.");
+            Flight flight= new Flight();
+            flight.idConnection = 123;
+            flight.dateDeparture = new DateTime(2019, 1, 25, 7, 30, 52);
+            flight.dateArrival = flight.dateDeparture.Add(new TimeSpan(2, 20, 0));
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(flight);
+                    transaction.Commit();
+                    Debug.Print("Saved flight to database.");
                 }
             }
         }

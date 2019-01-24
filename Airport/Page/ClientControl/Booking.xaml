@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FFB4AFAF">
-            
+        <ListBox x:Name="flightsBox" HorizontalAlignment="Center" Height="252" Margin="190,104,208,94" VerticalAlignment="Center" Width="402"/>
+
     </Grid>
 </UserControl>

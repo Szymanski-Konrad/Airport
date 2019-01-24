@@ -35,7 +35,7 @@ namespace Airport.Page.ClientControl
             {
                 if (!clients.Exists(x => x.Name == name.Text && x.Surname == surname.Text))
                 {
-                    NHiberControl.InsertClient(name.Text, surname.Text, isMale.IsChecked.Value, 0, Int32.Parse(age.Text));
+                    NHiberControl.InsertClient(name.Text, surname.Text, isMale.IsChecked.Value, 0, int.Parse(age.Text));
                     MessageBox.Show("UDAŁO SIĘ ZAREJESTROWAĆ");
                     Switcher.SwitchClient(new Page.ClientControl.Login());
                 }
@@ -44,6 +44,11 @@ namespace Airport.Page.ClientControl
                     Debug.Print("Such client already exists.");
                     MessageBox.Show("KLIENT O PODANYM IMIENIU I NAZWISKU ISTNIEJE");
                 }
+            }
+            else if (int.Parse(age.Text) <= 0)
+            {
+                Debug.Print("Age input can not be negative.");
+                MessageBox.Show("AGE CAN NOT BE BELOW 0");
             }
             else
             {

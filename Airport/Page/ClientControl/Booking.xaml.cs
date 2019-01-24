@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airport.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace Airport.Page.ClientControl
         public Booking()
         {
             InitializeComponent();
+        }
+
+        public Booking(Client client)
+        {
+            InitializeComponent();
+            flightsBox.ItemsSource = NHiberControl.LoadFlightsToList();
+            flightsBox.Items.Refresh();
         }
     }
 }

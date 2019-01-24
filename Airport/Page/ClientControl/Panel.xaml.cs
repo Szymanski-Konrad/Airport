@@ -21,6 +21,7 @@ namespace Airport.Page.ClientControl
     /// </summary>
     public partial class Panel : UserControl
     {
+        Client client;
         public Panel()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Airport.Page.ClientControl
 
         public Panel(Client client)
         {
+            this.client = client;
             InitializeComponent();
             name.Content = client.Name;
             surname.Content = client.Surname;
@@ -50,7 +52,7 @@ namespace Airport.Page.ClientControl
 
         private void BookingButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Switcher.SwitchClient(new Page.ClientControl.Booking(client));
         }
     }
 }
