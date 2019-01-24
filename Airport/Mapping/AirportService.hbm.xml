@@ -7,7 +7,7 @@
     <id name="id">
       <generator class="native" />
     </id>
-    <property name="idAiport" column="idAirport"/>
+    <property name="idAirport" column="idAirport"/>
     <property name="job" column="job" />
     <property name="salary" column="salary" />
   </class>

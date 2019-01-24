@@ -88,6 +88,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Page\Firm\AirportPage.xaml.cs">
+      <DependentUpon>AirportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\FleetPage.xaml.cs">
+      <DependentUpon>FleetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\FlightsPage.xaml.cs">
+      <DependentUpon>FlightsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\WorkersPage.xaml.cs">
+      <DependentUpon>WorkersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\ClientControl\Panel.xaml.cs">
       <DependentUpon>Panel.xaml</DependentUpon>
     </Compile>
@@ -127,6 +139,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\FirmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\AirportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\FleetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\FlightsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\WorkersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,20 +223,20 @@
       <DependentUpon>Database1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Mapping\Warehouse.hbm.xml" />
-    <Resource Include="Mapping\Ticket.hbm.xml" />
-    <Resource Include="Mapping\Service.hbm.xml" />
-    <Resource Include="Mapping\PlaneService.hbm.xml" />
-    <Resource Include="Mapping\PlaneMarket.hbm.xml" />
-    <Resource Include="Mapping\Flight.hbm.xml" />
-    <Resource Include="Mapping\Fleet.hbm.xml" />
-    <Resource Include="Mapping\Firm.hbm.xml" />
-    <Resource Include="Mapping\Discount.hbm.xml" />
-    <Resource Include="Mapping\Connection.hbm.xml" />
-    <Resource Include="Mapping\Client.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Warehouse.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Ticket.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Service.hbm.xml" />
+    <EmbeddedResource Include="Mapping\PlaneService.hbm.xml" />
+    <EmbeddedResource Include="Mapping\PlaneMarket.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Flight.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Fleet.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Firm.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Discount.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Connection.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Client.hbm.xml" />
     <Resource Include="Mapping\Booking.hbm.xml" />
-    <Resource Include="Mapping\AirportService.hbm.xml" />
-    <Resource Include="Mapping\Airport.hbm.xml" />
+    <EmbeddedResource Include="Mapping\AirportService.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Airport.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

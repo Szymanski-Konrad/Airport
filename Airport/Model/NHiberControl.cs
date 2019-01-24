@@ -6,10 +6,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+using Airport.Model;
+
 namespace Airport.Model
 {
     public static class NHiberControl
     {
+        public static void InsertFirm()
+        {
+            Firm firm = new Firm();
+            firm.Account = 10000;
+            firm.Name = "Firma na 5";
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(firm);
+                    transaction.Commit();
+                }
+            }
+        }
+
         public static void LoadGames()
         {
             using (ISession session = Session.OpenSession())

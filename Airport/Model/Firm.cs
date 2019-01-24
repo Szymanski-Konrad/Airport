@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHiber.Tables
+namespace Airport.Model
 {
-    class Firm
+    public class Firm
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public float account { get; set; }
+        public string Name { get; set; }
+        public int Account { get; set; }
     }
 }

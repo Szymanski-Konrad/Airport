@@ -9,6 +9,6 @@
     </id>
     <property name="idAirport" column="idAirport"/>
     <property name="fuelAmount" column="fuelAmount" />
-    <property name="capacityGasTanl" column="capacityGasTank" />
+    <property name="capacityGasTank" column="capacityGasTank" />
   </class>
 </hibernate-mapping>

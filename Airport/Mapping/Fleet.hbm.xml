@@ -9,7 +9,6 @@
     </id>
     <property name="idPlane" column="idPlane" />
     <property name="planeCondition" column="planeCondition"/>
-    <property name="Category" column="capacityGasTank" />
-    <property name="Discounted" column="Discounted" />
+    <property name="capacityGasTank" column="capacityGasTank" />
   </class>
 </hibernate-mapping>

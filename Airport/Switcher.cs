@@ -15,7 +15,6 @@ namespace Airport
         public static ClientWindow clientSwitcher;
         public static FirmWindow firmSwitcher;
 
-
         public static void SwitchClient(UserControl page)
         {
             clientSwitcher.Navigate(page);

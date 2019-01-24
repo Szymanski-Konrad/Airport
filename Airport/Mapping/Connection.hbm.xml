@@ -9,7 +9,7 @@
     </id>
     <property name="idAirportStart" column="idAirportStart"/>
     <property name="idAirportEnd" column="idAiportEnd" />
-    <property name="name" column="name" />
+    <property name="Name" column="Name" />
     <property name="distance" column="distance" />
   </class>
 </hibernate-mapping>

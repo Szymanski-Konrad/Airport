@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHiber.Tables
+namespace Airport.Model
 {
-    class Fleet
+    public class Fleet
     {
         public int id { get; set; }
         public int idPlane { get; set; }
