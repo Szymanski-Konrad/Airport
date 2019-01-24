@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Airport.Model
     public static class Session
     {
         static ISessionFactory factory;
+        
 
         public static ISession OpenSession()
         {
@@ -19,7 +21,9 @@ namespace Airport.Model
             {
                 Configuration c = new Configuration();
                 c.Configure();
-                c.AddAssembly(Assembly.GetCallingAssembly());
+                c.AddAssembly(typeof(Firm).Assembly);
+                new SchemaExport(c).Execute(true, true, false);
+                //c.AddAssembly(Assembly.GetCallingAssembly());
                 factory = c.BuildSessionFactory();
             }
 

@@ -15,14 +15,18 @@ namespace Airport.Model
         public static void InsertFirm()
         {
             Firm firm = new Firm();
-            firm.Account = 10000;
-            firm.Name = "Firma na 5";
+            firm.account = 10000;
+            firm.name = "Firma na 5";
+
+            Model.Airport air = new Airport();
+            air.capacity = 5;
+            air.name = "dupa";
 
             using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(firm);
+                    session.Save(air);
                     transaction.Commit();
                 }
             }
@@ -44,10 +48,15 @@ namespace Airport.Model
 
         public static void SaveGame()
         {
-            Product product = new Product();
-            product.Category = "Nowy";
-            product.Discounted = true;
-            product.Name = "Produkt";
+            //Product product = new Product();
+            //product.Category = "Nowy";
+            //product.Discounted = true;
+            //product.Name = "Produkt";
+
+            Firm product = new Firm();
+            product.id = 0;
+            product.account = 100;
+            product.name = "Dupa";
 
             using (ISession session = Session.OpenSession())
             {

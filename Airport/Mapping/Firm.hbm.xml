@@ -3,11 +3,11 @@
                    assembly="Airport"
                    namespace="Airport.Model"
                    auto-import="true">
-  <class name="Firm" table="Firm" lazy="false">
+  <class name="Firm" lazy="false">
     <id name="id">
       <generator class="native" />
     </id>
-    <property name="Name" column="Name"/>
-    <property name="Account" column="Account" />
+    <property name="name" column="name"/>
+    <property name="account" column="account" />
   </class>
 </hibernate-mapping>
