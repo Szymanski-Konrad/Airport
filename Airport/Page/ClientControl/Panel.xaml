@@ -7,8 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="TWÓJ PANEL KLIENTA" HorizontalAlignment="Left" Margin="341,198,0,0" VerticalAlignment="Top"/>
-        <Button Content="WYLOGUJ I CHU" HorizontalAlignment="Left" Margin="712,420,0,0" VerticalAlignment="Top" Width="88" Click="LogOutButton_Click"/>
+        <Grid.Background>
+            <SolidColorBrush Color="White" Opacity="0.3"/>
+        </Grid.Background>
+        <Label Content="TWÓJ PANEL KLIENTA" Margin="303,25,294,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Center" Width="203"/>
+        <Button Content="WYLOGUJ I CHU" HorizontalAlignment="Center" Margin="710,420,0,0" VerticalAlignment="Top" Width="90" Click="LogOutButton_Click"/>
+        <Label Content="NAME" HorizontalAlignment="Center" Margin="136,87,621,0" VerticalAlignment="Top"/>
+        <Label Content="SURNAME" HorizontalAlignment="Center" Margin="239,87,496,0" VerticalAlignment="Top"/>
+        <Label Content="SEX" HorizontalAlignment="Center" Margin="368,87,403,0" VerticalAlignment="Top"/>
+        <Label Content="MILES TRAVELED" HorizontalAlignment="Center" Margin="457,87,244,0" VerticalAlignment="Top"/>
+        <Label Content="AGE" HorizontalAlignment="Center" Margin="614,87,154,0" VerticalAlignment="Top"/>
+        <Label x:Name="name" Content="name" HorizontalAlignment="Center" Margin="136,118,624,0" VerticalAlignment="Top"/>
+        <Label x:Name="surname" Content="surname" HorizontalAlignment="Center" Margin="240,118,496,0" VerticalAlignment="Top"/>
+        <Label x:Name="sex" Content="male" HorizontalAlignment="Center" Margin="362,118,391,0" VerticalAlignment="Top"/>
+        <Label x:Name="miles" Content="miles traveled" HorizontalAlignment="Center" Margin="470,118,260,0" VerticalAlignment="Top"/>
+        <Label x:Name="age" Content="32" HorizontalAlignment="Center" Margin="611,118,148,0" VerticalAlignment="Top"/>
+
+        <Button Content="ZAREZERWUJ BILET" HorizontalAlignment="Center" Margin="0,222,0,0" VerticalAlignment="Top" Width="800" BorderBrush="{x:Null}" Background="{x:Null}" Click="BookingButton_Click"/>
+
 
     </Grid>
 </UserControl>

@@ -28,8 +28,15 @@ namespace Airport.Page.ClientControl
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            NHiberControl.LoadClients();
-            Switcher.SwitchClient(new Page.ClientControl.Panel());
+            List<Client> clients = NHiberControl.LoadClientsToList();
+            if (clients.Exists(x => x.Name == name.Text && x.Surname == surname.Text))
+            {
+                Switcher.SwitchClient(new Page.ClientControl.Panel(clients.Single(x => x.Name == name.Text && x.Surname == surname.Text)));
+            }
+            else
+            {
+                MessageBox.Show("PODANE DANE SĄ NIEPRAWIDŁOWE");
+            }
         }
     }
 }

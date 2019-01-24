@@ -30,6 +30,8 @@ namespace Airport
             //NHiberControl.SaveGame();
             //NHiberControl.LoadGames();
             //NHiberControl.InsertFirm();
+            NHiberControl.SaveClient();
+            NHiberControl.LoadClients();
             //NHiberControl.RefreshTables();
             GameStats.account = 100000;
         }

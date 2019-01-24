@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using Airport.Model;
+using System.Diagnostics;
 
 namespace Airport.Model
 {
@@ -36,24 +37,65 @@ namespace Airport.Model
             }
         }
 
+        public static void InsertClient(string name, string surname, bool isMale, int milesTraveled, int age)
+        {
+            Debug.Print($"NHiberControl method InsertClient called.");
+            Client client = new Client();
+            client.Name = name;
+            client.Surname = surname;
+            client.isMale = isMale;
+            client.milesTraveled = milesTraveled;
+            client.age = age;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(client);
+                    transaction.Commit();
+                }
+            }
+            Debug.Print("Insert client to database.");
+        }
+
         public static void LoadClients()
         {
+            Debug.Print($"NHiberControl method LoadClients called.");
             using (ISession session = Session.OpenSession())
             {
                 IQuery query = session.CreateQuery("from Client order by Name asc");
                 if (query != null)
                 {
                     IList<Client> clients = query.List<Client>();
-                    MessageBox.Show("znalezieni klienci: " + clients.Count.ToString());
+                    Debug.Print("znalezieni klienci: " + clients.Count.ToString());
                     foreach (Client client in clients)
                     {
-                        MessageBox.Show(client.Name + ", " + client.Surname);
-
+                        Debug.Print(client.Surname + " " + client.Name);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("query is null");
+                    Debug.Print("Query is null.");
+                }
+            }
+        }
+
+        public static List<Client> LoadClientsToList()
+        {
+            Debug.Print($"NHiberControl method LoadClientsList called.");
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Client order by Name asc");
+                if (query != null)
+                {
+                    IList<Client> clients = query.List<Client>();
+                    Debug.Print("Clients found: " + clients.Count.ToString());
+                    return (List<Client>)clients;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Client>();
                 }
             }
         }
@@ -98,6 +140,7 @@ namespace Airport.Model
 
         public static void SaveClient()
         {
+            Debug.Print($"NHiberControl method SaveClient called.");
             Client client = new Client();
             client.Name = "Joy";
             client.Surname = "En";
@@ -111,9 +154,8 @@ namespace Airport.Model
                 {
                     session.Save(client);
                     transaction.Commit();
+                    Debug.Print("Saved client to database.");
                 }
-
-                MessageBox.Show("Saved client to database");
             }
         }
     }
