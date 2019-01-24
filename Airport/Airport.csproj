@@ -88,6 +88,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Page\Firm\AirportPage.xaml.cs">
+      <DependentUpon>AirportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\FleetPage.xaml.cs">
+      <DependentUpon>FleetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\FlightsPage.xaml.cs">
+      <DependentUpon>FlightsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\WorkersPage.xaml.cs">
+      <DependentUpon>WorkersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Switcher.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +118,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\FirmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\AirportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\FleetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\FlightsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\WorkersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

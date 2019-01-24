@@ -6,10 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+using Airport.Model;
+
 namespace Airport.Model
 {
     public static class NHiberControl
     {
+        public static void InsertFirm()
+        {
+            
+
+            using (ISession session = Session.OpenSession())
+            {
+                
+            }
+        }
+
         public static void LoadGames()
         {
             using (ISession session = Session.OpenSession())

@@ -25,6 +25,26 @@ namespace Airport.Page
             Switcher.firmSwitcher = this;
         }
 
+        private void FleetPage_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchFirm(new Page.Firm.FleetPage());
+        }
+
+        private void FlightPage_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchFirm(new Page.Firm.FleetPage());
+        }
+
+        private void AirportPage_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchFirm(new Page.Firm.AirportPage());
+        }
+
+        private void WorkersPage_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchFirm(new Page.Firm.WorkersPage());
+        }
+
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
