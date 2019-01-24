@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Airport.Model;
-
-namespace Airport
+namespace Airport.Page
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FirmWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FirmWindow : Window
     {
-        public MainWindow()
+        public FirmWindow()
         {
             InitializeComponent();
-            //NHiberControl.SaveGame();
-            //NHiberControl.SaveGame();
-            NHiberControl.LoadGames();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
