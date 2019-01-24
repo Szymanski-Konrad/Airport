@@ -40,5 +40,15 @@ namespace Airport.Page
             else
                 throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
         }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchClient(new Page.ClientControl.Register());
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchClient(new Page.ClientControl.Login());
+        }
     }
 }

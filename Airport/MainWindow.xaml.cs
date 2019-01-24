@@ -28,7 +28,7 @@ namespace Airport
             InitializeComponent();
             //NHiberControl.SaveGame();
             //NHiberControl.SaveGame();
-            NHiberControl.LoadGames();
+            //NHiberControl.LoadGames();
         }
 
         private void FirmWindow_Click(object sender, RoutedEventArgs e)
