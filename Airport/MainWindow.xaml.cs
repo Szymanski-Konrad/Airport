@@ -25,9 +25,9 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
-            NHiberControl.SaveGame();
-            NHiberControl.SaveGame();
-            NHiberControl.LoadGames();
+            //NHiberControl.SaveGame();
+            //NHiberControl.SaveGame();
+            //NHiberControl.LoadGames();
         }
     }
 }
