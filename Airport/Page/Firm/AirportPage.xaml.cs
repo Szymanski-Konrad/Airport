@@ -20,9 +20,24 @@ namespace Airport.Page.Firm
     /// </summary>
     public partial class AirportPage : UserControl
     {
-        public AirportPage()
+        public AirportPage(Model.Airport airport)
         {
             InitializeComponent();
+        }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Fuel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Workers_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

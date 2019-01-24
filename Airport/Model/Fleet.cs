@@ -10,7 +10,8 @@ namespace Airport.Model
     {
         public int id { get; set; }
         public int idPlane { get; set; }
-        public string planeCondition { get; set; }
-        public string capacityGasTank { get; set; }
+        public int planeCondition { get; set; }
+        public int capacityGasTank { get; set; }
+        public bool isBusy { get; set; }
     }
 }

@@ -33,6 +33,9 @@ namespace Airport
             NHiberControl.SaveClient();
             NHiberControl.LoadClients();
             NHiberControl.SaveFlight();
+            //NHiberControl.RefreshTables();
+            FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
+            GameStats.account = 100000;
         }
 
         private void FirmWindow_Click(object sender, RoutedEventArgs e)

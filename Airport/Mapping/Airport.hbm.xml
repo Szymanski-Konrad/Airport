@@ -8,6 +8,5 @@
       <generator class="native" />
     </id>
     <property name="name" column="name" />
-    <property name="capacity" column="capacity" />
   </class>
 </hibernate-mapping>

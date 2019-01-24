@@ -12,6 +12,5 @@
     <property name="capacityPersons" column="capacityPersons" />
     <property name="capacityLuggage" column="capacityLuggage" />
     <property name="range" column="range" />
-    <property name="isSecondHand" column="isSecondHand" />
   </class>
 </hibernate-mapping>

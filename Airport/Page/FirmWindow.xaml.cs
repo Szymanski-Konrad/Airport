@@ -25,24 +25,31 @@ namespace Airport.Page
             Switcher.firmSwitcher = this;
         }
 
-        private void FleetPage_Click(object sender, RoutedEventArgs e)
-        {
-            Switcher.SwitchFirm(new Page.Firm.FleetPage());
-        }
-
         private void FlightPage_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.SwitchFirm(new Page.Firm.FleetPage());
+            //Switcher.SwitchFirm(new Page.Firm.FleetPage());
+            frame.NavigationService.Navigate(new Page.Firm.FlightsPage());
         }
 
         private void AirportPage_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.SwitchFirm(new Page.Firm.AirportPage());
+            //Switcher.SwitchFirm(new Page.Firm.AirportPage());
+            frame.NavigationService.Navigate(new Page.Firm.AirportMarketPage());
         }
 
-        private void WorkersPage_Click(object sender, RoutedEventArgs e)
+        private void Discount_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.SwitchFirm(new Page.Firm.WorkersPage());
+            frame.NavigationService.Navigate(new Page.Firm.DiscountPage());
+        }
+
+        private void Planes_Click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(new Page.Firm.FleetPage());
+        }
+
+        public void NavigateOnFrame(UserControl nextPage)
+        {
+            frame.NavigationService.Navigate(nextPage);
         }
 
         public void Navigate(UserControl nextPage)

@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Airport.Model;
+
 namespace Airport.Page.Firm
 {
     /// <summary>
@@ -23,6 +25,44 @@ namespace Airport.Page.Firm
         public FleetPage()
         {
             InitializeComponent();
+        }
+
+        private void Fleet_Click(object sender, RoutedEventArgs e)
+        {
+            newAirplanes_DataGrid.Visibility = Visibility.Collapsed;
+            Fleet_DataGrid.Visibility = Visibility.Visible;
+            Fleet_DataGrid.ItemsSource = FirmNHiberControl.GetFleets();
+        }
+
+        private void NewAirplane_Click(object sender, RoutedEventArgs e)
+        {
+            newAirplanes_DataGrid.ItemsSource = CustomData.GetBuyList();
+            Fleet_DataGrid.Visibility = Visibility.Collapsed;
+            newAirplanes_DataGrid.Visibility = Visibility.Visible;
+        }
+
+        private void NewAirplanes_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PlaneMarket plane = newAirplanes_DataGrid.SelectedItem as PlaneMarket;
+            if (plane != null)
+            {
+                if (plane.price <= GameStats.account)
+                {
+                    FirmNHiberControl.BuyPlane(plane);
+                    GameStats.account -= plane.price;
+                    MessageBox.Show(GameStats.account.ToString());
+                }
+            }
+        }
+
+        private void Fleet_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Fleet fleet = Fleet_DataGrid.SelectedItem as Fleet;
+            if (fleet != null)
+            {
+                FirmNHiberControl.SoldPlane(fleet);
+                Fleet_DataGrid.ItemsSource = FirmNHiberControl.GetFleets();
+            }
         }
     }
 }

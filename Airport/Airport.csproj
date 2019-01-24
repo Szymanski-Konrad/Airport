@@ -88,12 +88,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomData.cs" />
+    <Compile Include="GameStats.cs" />
+    <Compile Include="Model\AirportMarket.cs" />
     <Compile Include="Model\Firm.cs" />
     <Compile Include="Page\ClientControl\Booking.xaml.cs">
       <DependentUpon>Booking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\FirmNHiberControl.cs" />
+    <Compile Include="Page\Firm\AirportMarketPage.xaml.cs">
+      <DependentUpon>AirportMarketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\Firm\AirportPage.xaml.cs">
       <DependentUpon>AirportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Firm\DiscountPage.xaml.cs">
+      <DependentUpon>DiscountPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\Firm\FleetPage.xaml.cs">
       <DependentUpon>FleetPage.xaml</DependentUpon>
@@ -150,7 +160,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page\Firm\AirportMarketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\Firm\AirportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Firm\DiscountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +248,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mapping\AirportMarket.hbm.xml" />
     <EmbeddedResource Include="Mapping\Warehouse.hbm.xml" />
     <EmbeddedResource Include="Mapping\Ticket.hbm.xml" />
     <EmbeddedResource Include="Mapping\Service.hbm.xml" />
