@@ -55,10 +55,19 @@ namespace Airport.Model
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     session.Update(airport);
+                    transaction.Commit();
+                }
+            }
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
                     session.Save(newAirport);
                     transaction.Commit();
                 }
             }
+
         }
 
         public static void BuyFuel(Warehouse warehouse)
@@ -129,6 +138,60 @@ namespace Airport.Model
                     transaction.Commit();
                 }
             }
+        }
+
+        public static void HireAirportWorker(AirportService service)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(service);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void FireAirportWorker(AirportService service)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(service);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static List<AirportService> GetAirportServices(int id)
+        {
+            List<AirportService> list = new List<AirportService>();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<AirportService>().Where(x => x.idAirport == id).ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static List<Service> GetServicesFromAirport(int id)
+        {
+            List<Service> list = new List<Service>();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<Service>().Where(x => x.id == id).ToList();
+                }
+            }
+
+            return list;
         }
     }
 }

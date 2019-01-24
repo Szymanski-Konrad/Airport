@@ -40,9 +40,8 @@ namespace Airport.Page.Firm
             AirportMarket airport = NewAirport_DataGrid.SelectedItem as AirportMarket;
             if (airport != null)
             {
-                MessageBox.Show(":)");
                 FirmNHiberControl.BuyAirport(airport);
-                Airport_DataGrid.ItemsSource = FirmNHiberControl.GetAirportMarkets();
+                NewAirport_DataGrid.ItemsSource = FirmNHiberControl.GetAirportMarkets();
             }
         }
 

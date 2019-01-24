@@ -8,10 +8,32 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue">
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
-            <Button Content="Serwis" Margin="5" Click="Service_Click"/>
-            <Button Content="Paliwo" Margin="5" Click="Fuel_Click"/>
-            <Button Content="Pracownicy" Margin="5" Click="Workers_Click"/>
+            <TextBlock Text="Serwis" Margin="140,10,200,10"/>
+            <TextBlock Text="Paliwo" Margin="10,10,180,10"/>
+            <TextBlock Text="Pracownicy" Margin="10,10,10,10"/>
         </WrapPanel>
-        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" Name="Service"/>
+            <StackPanel Grid.Column="1">
+                <TextBlock Name="CurrentFuel" Margin="10"/>
+                <TextBox Name="AmountToBuy" Margin="10"/>
+                <Button Content="Zamów paliwo" Margin="10" Click="Fuel_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <DataGrid Name="Airport_Workers" Margin="10" Height="200" SelectionChanged="Airport_Workers_SelectionChanged"/>
+                <ComboBox Name="Job_Combo" Margin="10">
+                    <ComboBoxItem Content="mechanik"/>
+                    <ComboBoxItem Content="kasjer"/>
+                    <ComboBoxItem Content="ochroniarz"/>
+                    <ComboBoxItem Content="sprzatacz"/>
+                </ComboBox>
+                <Button Content="Zatrudnij" Margin="10" Click="Hire_Click"/>
+            </StackPanel>
+        </Grid>
     </DockPanel>
 </UserControl>
