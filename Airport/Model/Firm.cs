@@ -9,7 +9,7 @@ namespace Airport.Model
     public class Firm
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public int account { get; set; }
+        public string Name { get; set; }
+        public int Account { get; set; }
     }
 }

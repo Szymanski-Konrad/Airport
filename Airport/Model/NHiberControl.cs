@@ -15,8 +15,8 @@ namespace Airport.Model
         public static void InsertFirm()
         {
             Firm firm = new Firm();
-            firm.account = 10000;
-            firm.name = "Firma na 5";
+            firm.Account = 10000;
+            firm.Name = "Firma na 5";
 
             using (ISession session = Session.OpenSession())
             {
