@@ -88,6 +88,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Firm.cs" />
     <Compile Include="Page\Firm\AirportPage.xaml.cs">
       <DependentUpon>AirportPage.xaml</DependentUpon>
     </Compile>
@@ -166,7 +167,6 @@
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Connection.cs" />
     <Compile Include="Model\Discount.cs" />
-    <Compile Include="Model\Firm.cs" />
     <Compile Include="Model\Fleet.cs" />
     <Compile Include="Model\Flight.cs" />
     <Compile Include="ISwitchable.cs" />
