@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Airport.Page.Firm"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue">
     <DockPanel>
-        
-        
+        <WrapPanel DockPanel.Dock="Top">
+            <Button Content="Serwis" Margin="5" Click="Service_Click"/>
+            <Button Content="Paliwo" Margin="5" Click="Fuel_Click"/>
+            <Button Content="Pracownicy" Margin="5" Click="Workers_Click"/>
+        </WrapPanel>
+        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
     </DockPanel>
 </UserControl>

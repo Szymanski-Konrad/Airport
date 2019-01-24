@@ -18,17 +18,21 @@ namespace Airport.Model
             firm.account = 10000;
             firm.name = "Firma na 5";
 
-            Model.Airport air = new Airport();
-            air.capacity = 5;
-            air.name = "dupa";
-
             using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(air);
+                    session.Save(firm);
                     transaction.Commit();
                 }
+            }
+        }
+
+        public static void RefreshTables()
+        {
+            using(ISession session = Session.OpenSession())
+            {
+
             }
         }
 

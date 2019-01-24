@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="FIRMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="397" Height="420" BorderThickness="0" Background="IndianRed" FontSize="20"/>
+        <Button Content="FIRMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="397" Height="420" BorderThickness="0" Background="IndianRed" FontSize="20" Click="FirmWindow_Click"/>
         <Button Content="KLIENT" HorizontalAlignment="Left" Margin="397,0,-0.4,0" VerticalAlignment="Top" Width="397" BorderThickness="0" Background="AliceBlue" Height="420" Click="ClientWindow_Click" FontSize="20"/>
         <Label Content="CHOOSE YOUR SIDE" HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" FontSize="20"/>
 

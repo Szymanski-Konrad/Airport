@@ -24,5 +24,20 @@ namespace Airport.Page.Firm
         {
             InitializeComponent();
         }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Fuel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Workers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
