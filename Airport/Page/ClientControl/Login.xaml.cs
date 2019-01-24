@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Airport.Model;
 
 namespace Airport.Page.ClientControl
 {
@@ -27,7 +28,7 @@ namespace Airport.Page.ClientControl
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            NHiberControl.LoadClients();
             Switcher.SwitchClient(new Page.ClientControl.Panel());
         }
     }
