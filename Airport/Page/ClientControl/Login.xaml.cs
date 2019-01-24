@@ -31,7 +31,7 @@ namespace Airport.Page.ClientControl
             List<Client> clients = NHiberControl.LoadClientsToList();
             if (clients.Exists(x => x.Name == name.Text && x.Surname == surname.Text))
             {
-                Switcher.SwitchClient(new Page.ClientControl.Panel());
+                Switcher.SwitchClient(new Page.ClientControl.Panel(clients.Single(x => x.Name == name.Text && x.Surname == surname.Text)));
             }
             else
             {

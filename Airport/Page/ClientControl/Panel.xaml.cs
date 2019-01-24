@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airport.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,31 @@ namespace Airport.Page.ClientControl
             InitializeComponent();
         }
 
+        public Panel(Client client)
+        {
+            InitializeComponent();
+            name.Content = client.Name;
+            surname.Content = client.Surname;
+            if (client.isMale)
+            {
+                sex.Content = "male";
+            }
+            else
+            {
+                sex.Content = "female";
+            }
+            miles.Content = client.milesTraveled;
+            age.Content = client.age.ToString();
+        }
+
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
             Switcher.SwitchClient(new Page.ClientControl.Login());
+        }
+
+        private void BookingButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
