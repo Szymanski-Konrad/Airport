@@ -10,6 +10,6 @@ namespace Airport.Model
     {
         public int id { get; set; }
         public string name { get; set; }
-        public float account { get; set; }
+        public int account { get; set; }
     }
 }
