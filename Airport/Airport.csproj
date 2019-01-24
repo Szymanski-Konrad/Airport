@@ -88,6 +88,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Switcher.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +112,7 @@
     <Compile Include="Model\Firm.cs" />
     <Compile Include="Model\Fleet.cs" />
     <Compile Include="Model\Flight.cs" />
+    <Compile Include="ISwitchable.cs" />
     <Compile Include="Model\NHiberControl.cs" />
     <Compile Include="Model\PlaneMarket.cs" />
     <Compile Include="Model\PlaneService.cs" />
