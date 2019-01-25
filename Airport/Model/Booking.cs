@@ -11,7 +11,7 @@ namespace Airport.Model
         public int id { get; set; }
         public int idFlight { get; set; }
         public int idClient { get; set; }
-        public float price { get; set; }
+        public int price { get; set; }
         public int seats { get; set; }
 
         public override string ToString()

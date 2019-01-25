@@ -93,7 +93,7 @@ namespace Airport.Model
                     session.Update(warehouse);
                     transaction.Commit();
                 }
-             }
+            }
         }
 
         public static void TankFuel(Warehouse warehouse)
@@ -141,7 +141,7 @@ namespace Airport.Model
         public static List<AirportMarket> GetAirportMarkets()
         {
             List<AirportMarket> list = new List<AirportMarket>();
-            
+
             using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
@@ -172,7 +172,7 @@ namespace Airport.Model
         {
             using (ISession session = Session.OpenSession())
             {
-                using  (ITransaction transaction = session.BeginTransaction())
+                using (ITransaction transaction = session.BeginTransaction())
                 {
                     foreach (var item in airportMarkets)
                         session.Save(item);
@@ -292,7 +292,7 @@ namespace Airport.Model
         {
             List<Connection> list = new List<Connection>();
 
-            using(ISession session = Session.OpenSession())
+            using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
@@ -310,6 +310,18 @@ namespace Airport.Model
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     session.Save(flight);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void UpdateBooking(Booking booking)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(booking);
                     transaction.Commit();
                 }
             }
