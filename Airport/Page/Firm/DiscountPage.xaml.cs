@@ -28,8 +28,6 @@ namespace Airport.Page.Firm
             {
                 Bookings_Combo.Items.Add(item);
             }
-
-
         }
 
         private void Bookings_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)

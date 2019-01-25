@@ -11,6 +11,7 @@
     <property name="price" column="price" />
     <property name="capacityPersons" column="capacityPersons" />
     <property name="capacityLuggage" column="capacityLuggage" />
+    <property name="capacityGasTank" column="capacityGasTank" />
     <property name="range" column="range" />
   </class>
 </hibernate-mapping>

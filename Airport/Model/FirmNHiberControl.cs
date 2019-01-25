@@ -81,7 +81,95 @@ namespace Airport.Model
                     transaction.Commit();
                 }
             }
+        }
 
+        public static void SavePlaneMarket()
+        {
+            var list = CustomData.GetBuyList();
+            foreach (var item in list)
+            {
+                using (ISession session = Session.OpenSession())
+                {
+                    using (ITransaction transaction = session.BeginTransaction())
+                    {
+                        session.Save(item);
+                        transaction.Commit();
+                    }
+                }
+            }
+        }
+
+        public static void SaveAirportMarket()
+        {
+            var list = CustomData.GetBuyAirportList();
+            foreach (var item in list)
+            {
+                using (ISession session = Session.OpenSession())
+                {
+                    using (ITransaction transaction = session.BeginTransaction())
+                    {
+                        session.Save(item);
+                        transaction.Commit();
+                    }
+                }
+            }
+        }
+
+        public static List<PlaneMarket> GetPlaneMarkets()
+        {
+            List<PlaneMarket> list = new List<PlaneMarket>();
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<PlaneMarket>().ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static void SaveAccount(Firm firm)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(firm);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void CreateAccount()
+        {
+            Firm firm = new Firm();
+            firm.account = 10000;
+            firm.name = "My Airport Company";
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(firm);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static Firm GetAccount()
+        {
+            Firm tmp = new Firm();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    tmp = session.Query<Firm>().First();
+                }
+            }
+
+            return tmp;
         }
 
         public static void BuyFuel(Warehouse warehouse)

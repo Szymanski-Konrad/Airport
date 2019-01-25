@@ -30,7 +30,7 @@ namespace Airport.Page.Firm
             Airport_Workers.ItemsSource = FirmNHiberControl.GetAirportServices(Airport.id);
             Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
             Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
-            CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+            CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank + " Cena za jednostkę paliwa: 1PLN";
             PlanesToSerivce_Combo.ItemsSource = FirmNHiberControl.GetFleetToService();
         }
 
@@ -47,9 +47,19 @@ namespace Airport.Page.Firm
                 Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
                 if (i <= warehouse.capacityGasTank - warehouse.fuelAmount)
                 {
-                    warehouse.fuelAmount += i;
-                    FirmNHiberControl.BuyFuel(warehouse);
-                    CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+                    if (i <= GameStats.firm.account)
+                    {
+                        warehouse.fuelAmount += i;
+                        GameStats.firm.account -= i;
+                        FirmNHiberControl.SaveAccount(GameStats.firm);
+                        FirmNHiberControl.BuyFuel(warehouse);
+                        CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie masz wystarczającej ilości pieniędzy.");
+                    }
+
                 }
                 else
                 {

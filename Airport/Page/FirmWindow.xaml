@@ -8,9 +8,11 @@
         Title="FirmWindow" Height="450" Width="800">
     <DockPanel>
         <WrapPanel Name="FirmWrap" DockPanel.Dock="Top" Height="50" HorizontalAlignment="Center">
-            <Button Content="Wroc do menu" Margin="10"/>
-            <TextBlock Text="Nazwa firmy: " Margin="10"/>
+            <Button Content="Sprawdź stan konta" Margin="10" Click="Account_Click"/>
+            <Button Content="Cheaty" Margin="10" Click="Cheat_Click"/>
+            <TextBlock Name="Name_TextBlock" Margin="10"/>
             <TextBlock Text="Konto firmy: " Margin="10"/>
+            <TextBlock Name="Account_Text" Margin="10"/>
             <Button Margin="5" Content="Lotniska" Click="AirportPage_Click"/>
             <Button Margin="5" Content="Loty" Click="FlightPage_Click"/>
             <Button Margin="5" Content="Promocje" Click="Discount_Click"/>

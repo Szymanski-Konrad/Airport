@@ -36,7 +36,7 @@ namespace Airport.Page.Firm
 
         private void NewAirplane_Click(object sender, RoutedEventArgs e)
         {
-            newAirplanes_DataGrid.ItemsSource = CustomData.GetBuyList();
+            newAirplanes_DataGrid.ItemsSource = FirmNHiberControl.GetPlaneMarkets();
             Fleet_DataGrid.Visibility = Visibility.Collapsed;
             newAirplanes_DataGrid.Visibility = Visibility.Visible;
         }
@@ -46,11 +46,16 @@ namespace Airport.Page.Firm
             PlaneMarket plane = newAirplanes_DataGrid.SelectedItem as PlaneMarket;
             if (plane != null)
             {
-                if (plane.price <= GameStats.account)
+                if (plane.price <= GameStats.firm.account)
                 {
                     FirmNHiberControl.BuyPlane(plane);
-                    //GameStats.account -= plane.price;
-                    MessageBox.Show(GameStats.account.ToString());
+                    GameStats.firm.account -= plane.price;
+                    MessageBox.Show("Pozostało na koncie: " + GameStats.firm.account, "Udało się kupić samolot");
+                    FirmNHiberControl.SaveAccount(GameStats.firm);
+                }
+                else
+                {
+                    MessageBox.Show("Nie stać Ciebie na ten samolot");
                 }
             }
         }

@@ -11,5 +11,10 @@ namespace Airport.Model
         public int id { get; set; }
         public string name { get; set; }
         public int account { get; set; }
+
+        public void Cheat()
+        {
+            account += 10000;
+        }
     }
 }

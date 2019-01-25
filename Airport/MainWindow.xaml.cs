@@ -26,23 +26,15 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
-            //NHiberControl.SaveGame();
-            //NHiberControl.SaveGame();
-            //NHiberControl.LoadGames();
-            //NHiberControl.InsertFirm();
-            NHiberControl.SaveClient();
-            NHiberControl.SaveAirport("Bialystok");
-            NHiberControl.SaveAirport("Kolno");
-            NHiberControl.SaveConnection();
-            NHiberControl.InsertConnection(2, 1, 90);
-            NHiberControl.SaveBooking();
+            //InitializeData();
+            GameStats.firm = FirmNHiberControl.GetAccount();
+        }
 
-            NHiberControl.RefreshTables();
+        private void InitializeData()
+        {
             FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
-            NHiberControl.LoadClients();
-            //NHiberControl.RefreshTables();
-            FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
-            GameStats.account = 100000;
+            FirmNHiberControl.SavePlaneMarket();
+            FirmNHiberControl.CreateAccount();
         }
 
         private void FirmWindow_Click(object sender, RoutedEventArgs e)

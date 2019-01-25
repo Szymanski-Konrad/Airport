@@ -23,6 +23,8 @@ namespace Airport.Page
         {
             InitializeComponent();
             Switcher.firmSwitcher = this;
+            Account_Text.Text = GameStats.firm.account.ToString() + "PLN";
+            Name_TextBlock.Text = GameStats.firm.name;
         }
 
         private void FlightPage_Click(object sender, RoutedEventArgs e)
@@ -66,6 +68,18 @@ namespace Airport.Page
                 s.UtilizeState(state);
             else
                 throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
+        }
+
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            Account_Text.Text = GameStats.firm.account.ToString() + "PLN";
+        }
+
+        private void Cheat_Click(object sender, RoutedEventArgs e)
+        {
+            GameStats.firm.Cheat();
+            Account_Text.Text = GameStats.firm.account.ToString() + "PLN";
+            Model.FirmNHiberControl.SaveAccount(GameStats.firm);
         }
     }
 }

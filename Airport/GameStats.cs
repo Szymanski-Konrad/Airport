@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airport.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace Airport
 {
     public static class GameStats
     {
-        public static int account { get; set; }
-        public static string name { get; set; }
+        public static Firm firm { get; set; }
     }
 }
