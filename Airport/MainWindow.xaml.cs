@@ -34,7 +34,9 @@ namespace Airport
             NHiberControl.SaveAirport("Bialystok");
             NHiberControl.SaveAirport("Kolno");
             NHiberControl.SaveConnection();
+            NHiberControl.InsertConnection(2, 1, 90);
             NHiberControl.SaveFlight();
+            NHiberControl.InsertFlight(2, 2, new DateTime(2019, 2, 1, 12, 30, 30), new TimeSpan(1, 30, 0));
             NHiberControl.SaveBooking();
 
             NHiberControl.RefreshTables();

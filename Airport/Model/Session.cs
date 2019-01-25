@@ -22,9 +22,9 @@ namespace Airport.Model
                 c.Configure();
                 c.AddAssembly(typeof(Firm).Assembly);
                 //c.AddAssembly(Assembly.GetCallingAssembly());
-                //new SchemaExport(c).Execute(true, true, false);
+                new SchemaExport(c).Execute(true, true, false);
                 //new SchemaExport(c).Create(true, true);
-                new SchemaExport(c).Drop(false, false);
+                //new SchemaExport(c).Drop(false, false);
                 factory = c.BuildSessionFactory();
             }
 

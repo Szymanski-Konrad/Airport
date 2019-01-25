@@ -46,7 +46,6 @@ namespace Airport.Model
             client.isMale = isMale;
             client.milesTraveled = milesTraveled;
             client.age = age;
-            client.idBooking = new List<int>();
 
             using (ISession session = Session.OpenSession())
             {
@@ -59,6 +58,26 @@ namespace Airport.Model
             Debug.Print("Insert client to database.");
         }
 
+        public static void InsertConnection(int idAirportStart, int idAirportEnd, int distance)
+        {
+            Debug.Print($"NHiberControl method InsertConnection called.");
+            Connection connection=new Connection();
+            connection.idAirportStart = idAirportStart;
+            connection.idAirportEnd = idAirportEnd;
+            connection.Name = $"{LoadAirportsToList().Single(x => x.id == connection.idAirportStart).name} - {LoadAirportsToList().Single(x => x.id == connection.idAirportEnd).name}";
+            connection.distance = 100;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(connection);
+                    transaction.Commit();
+                }
+            }
+            Debug.Print("Insert connection to database.");
+        }
+
         public static void InsertBooking(int idFlight, int idClient, float price, int seats)
         {
             Debug.Print($"NHiberControl method InsertBooking called.");
@@ -68,13 +87,31 @@ namespace Airport.Model
             booking.price = price;
             booking.seats = seats;
 
-            LoadClientsToList().Single(x => x.id == idClient).idBooking.Add(2);
-
             using (ISession session = Session.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     session.Save(booking);
+                    transaction.Commit();
+                }
+            }
+            Debug.Print("Insert booking to database.");
+        }
+
+        public static void InsertFlight(int idConnection, int idPlane, DateTime dateDeparture, TimeSpan timeRequired)
+        {
+            Debug.Print($"NHiberControl method InsertBooking called.");
+            Flight flight = new Flight();
+            flight.idConnection = idConnection;
+            flight.idPlane = idPlane;
+            flight.dateDeparture = dateDeparture;
+            flight.dateArrival = flight.dateDeparture.Add(timeRequired);
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(flight);
                     transaction.Commit();
                 }
             }
@@ -268,7 +305,6 @@ namespace Airport.Model
             booking.price = 240f;
             booking.seats = 2;
 
-            NHiberControl.LoadClientsToList().Single(x => x.id == booking.idClient).idBooking.Add(booking.id);
 
             using (ISession session = Session.OpenSession())
             {
@@ -290,7 +326,6 @@ namespace Airport.Model
             client.isMale = false;
             client.milesTraveled = 0;
             client.age = 18;
-            client.idBooking = new List<int>();
 
             using (ISession session = Session.OpenSession())
             {

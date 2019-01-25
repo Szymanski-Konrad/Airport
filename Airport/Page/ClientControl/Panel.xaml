@@ -24,6 +24,7 @@
         <Label x:Name="age" Content="32" HorizontalAlignment="Center" Margin="611,118,148,0" VerticalAlignment="Top"/>
 
         <Button Content="ZAREZERWUJ BILET" HorizontalAlignment="Center" Margin="0,222,0,0" VerticalAlignment="Top" Width="800" BorderBrush="{x:Null}" Background="{x:Null}" Click="BookingButton_Click"/>
+        <Button Content="ZAREZERWOWANE BILETY" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Width="800" BorderBrush="{x:Null}" Background="{x:Null}" Click="BookedButton_Click"/>
 
 
     </Grid>

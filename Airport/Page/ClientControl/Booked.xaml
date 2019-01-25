@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Airport.Page.ClientControl.Booked"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Airport.Page.ClientControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FFB4AFAF">
+        <Label Content="DOSTĘPNE POŁĄCZENIA" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="KLIKNIJ, ABY WYBRAĆ" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <ListBox x:Name="bookingsBox" HorizontalAlignment="Center" Height="375" Margin="0,75,0,0" VerticalAlignment="Center" Width="777" SelectionChanged="BookingsBox_SelectionChanged"/>
+    </Grid>
+</UserControl>

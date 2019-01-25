@@ -9,7 +9,6 @@ namespace Airport.Model
     public class Client
     {
         public int id { get; set; }
-        public List<int> idBooking { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool isMale { get; set; }
