@@ -240,6 +240,25 @@ namespace Airport.Model
             }
         }
 
+        public static List<Fleet> LoadFleetToList()
+        {
+            Debug.Print($"NHiberControl method LoadFleetToList called.");
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Fleet order by idPlane asc");
+                if (query != null)
+                {
+                    IList<Fleet> fleet = query.List<Fleet>();
+                    Debug.Print("Bookings found: " + fleet.Count.ToString());
+                    return (List<Fleet>)fleet;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Fleet>();
+                }
+            }
+        }
 
         public static void LoadGames()
         {

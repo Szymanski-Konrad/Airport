@@ -82,6 +82,11 @@ namespace Airport.Page.Firm
                 return;
             }
 
+            Flight flight = new Flight();
+            flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
+            flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
+            flight.idConnection = selectedConnection.id;
+            flight.idPlane = Plane_Combo.SelectedIndex + 1;
             if (selectedConnection != null)
             {
                 Flight flight = new Flight();
@@ -104,6 +109,13 @@ namespace Airport.Page.Firm
             {
                 NewConnection.Visibility = Visibility.Collapsed;
                 NewFlight.Visibility = Visibility.Visible;
+                foreach (var item in NHiberControl.LoadFleetToList())
+                {
+                    if (!item.isBusy)
+                    {
+                        Plane_Combo.Items.Add(item.idPlane);
+                    }
+                }
             }
         }
 
