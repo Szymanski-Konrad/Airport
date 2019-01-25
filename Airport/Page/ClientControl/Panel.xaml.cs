@@ -54,5 +54,10 @@ namespace Airport.Page.ClientControl
         {
             Switcher.SwitchClient(new Page.ClientControl.Booking(client));
         }
+
+        private void BookedButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.SwitchClient(new Page.ClientControl.Booked(client));
+        }
     }
 }

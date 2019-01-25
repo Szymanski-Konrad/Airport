@@ -13,5 +13,11 @@ namespace Airport.Model
         public int idClient { get; set; }
         public float price { get; set; }
         public int seats { get; set; }
+
+        public override string ToString()
+        {
+
+            return $"Price: {price} $, seats: {seats}, {NHiberControl.LoadFlightsToList().Single(x => x.id == idFlight).ToString()} ";
+        }
     }
 }

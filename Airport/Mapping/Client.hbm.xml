@@ -7,7 +7,6 @@
     <id name="id">
       <generator class="native" />
     </id>
-    <property name="idBooking" column="idBooking"/>
     <property name="Name" column="Name"/>
     <property name="Surname" column="Surname" />
     <property name="isMale" column="isMale" />
