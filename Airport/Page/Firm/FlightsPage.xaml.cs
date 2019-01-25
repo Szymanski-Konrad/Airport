@@ -112,6 +112,7 @@ namespace Airport.Page.Firm
             {
                 NewConnection.Visibility = Visibility.Collapsed;
                 NewFlight.Visibility = Visibility.Visible;
+                Plane_Combo.Items.Clear();
                 foreach (var item in NHiberControl.LoadFleetToList())
                 {
                     if (!item.isBusy)
