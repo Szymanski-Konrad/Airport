@@ -29,11 +29,36 @@ namespace Airport.Page.Firm
             Airport = airport;
             Airport_Workers.ItemsSource = FirmNHiberControl.GetAirportServices(Airport.id);
             Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
+            Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
+            CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
         }
 
         private void Fuel_Click(object sender, RoutedEventArgs e)
         {
+            if (int.TryParse(AmountToBuy.Text, out int i))
+            {
+                if (i < 0)
+                {
+                    MessageBox.Show("Nie przyjmuje wartości ujemnych. Spróbuj ponownie z inną wartościa.");
+                    return;
+                }
 
+                Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
+                if (i <= warehouse.capacityGasTank - warehouse.fuelAmount)
+                {
+                    warehouse.fuelAmount += i;
+                    FirmNHiberControl.BuyFuel(warehouse);
+                    CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+                }
+                else
+                {
+                    MessageBox.Show("Za dużo paliwa. Nie pomieścimy tyle.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Przyjmuje tylko wartości liczbowe całkowite.");
+            }
         }
 
         private void Airport_Workers_SelectionChanged(object sender, SelectionChangedEventArgs e)

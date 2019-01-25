@@ -33,7 +33,7 @@ namespace Airport
             NHiberControl.SaveClient();
             NHiberControl.LoadClients();
             //NHiberControl.RefreshTables();
-            //FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
+            FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
             GameStats.account = 100000;
         }
 

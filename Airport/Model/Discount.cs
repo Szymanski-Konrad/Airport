@@ -9,8 +9,7 @@ namespace Airport.Model
     class Discount
     {
         public int id { get; set; }
-        public DateTime dateDeparture { get; set; }
-        public DateTime dateArrival { get; set; }
+        public int idConnection { get; set; }
         public float value { get; set; }
     }
 }
