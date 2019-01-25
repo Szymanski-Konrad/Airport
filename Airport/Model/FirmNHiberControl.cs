@@ -291,5 +291,17 @@ namespace Airport.Model
 
             return list;
         }
+
+        public static void SaveFlight(Flight flight)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(flight);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

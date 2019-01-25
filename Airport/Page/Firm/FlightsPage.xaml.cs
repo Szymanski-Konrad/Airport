@@ -73,6 +73,13 @@ namespace Airport.Page.Firm
             MessageBox.Show(Start_DatePicker.SelectedDate.ToString());
             MessageBox.Show(End_DatePicker.SelectedDate.ToString());
 
+            Flight flight = new Flight();
+            flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
+            flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
+            flight.idConnection = selectedConnection.id;
+
+            FirmNHiberControl.SaveFlight(flight);
+
             selectedConnection = null;
         }
 
