@@ -27,7 +27,7 @@
             <StackPanel Grid.Column="2">
                 <DataGrid Name="Airport_Workers" Margin="10" Height="200" SelectionChanged="Airport_Workers_SelectionChanged"/>
                 <ComboBox Name="Job_Combo" Margin="10">
-                    <ComboBoxItem Content="mechanik"/>
+                    <ComboBoxItem Content="mechanik" IsSelected="True"/>
                     <ComboBoxItem Content="kasjer"/>
                     <ComboBoxItem Content="ochroniarz"/>
                     <ComboBoxItem Content="sprzatacz"/>

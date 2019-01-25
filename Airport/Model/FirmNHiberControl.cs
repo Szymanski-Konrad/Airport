@@ -68,6 +68,21 @@ namespace Airport.Model
                 }
             }
 
+            Warehouse warehouse = new Warehouse();
+            warehouse.capacityGasTank = 5000000;
+            warehouse.fuelAmount = 1000;
+            warehouse.idAirport = airport.id;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    warehouse.idAirport = session.Query<Airport>().Where(x => x.name == newAirport.name).First().id;
+                    session.Save(warehouse);
+                    transaction.Commit();
+                }
+            }
+
         }
 
         public static void BuyFuel(Warehouse warehouse)
@@ -80,6 +95,21 @@ namespace Airport.Model
                     transaction.Commit();
                 }
              }
+        }
+
+        public static Warehouse GetWarehouse(int id)
+        {
+            Warehouse warehouse = new Warehouse();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    warehouse = session.Query<Warehouse>().Where(x => x.idAirport == id).First();
+                }
+            }
+
+            return warehouse;
         }
 
         public static List<Fleet> GetFleets()
@@ -188,6 +218,74 @@ namespace Airport.Model
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     list = session.Query<Service>().Where(x => x.id == id).ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static bool MakeConnection(Airport start, Airport end)
+        {
+            List<Connection> list = new List<Connection>();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<Connection>().ToList();
+                }
+            }
+
+            foreach (var item in list)
+            {
+                if (item.idAirportStart == start.id && item.idAirportEnd == end.id)
+                {
+                    return false;
+                }
+            }
+            Random random = new Random();
+            Connection connection = new Connection();
+            connection.idAirportStart = start.id;
+            connection.idAirportEnd = end.id;
+            connection.Name = start.name + " - " + end.name;
+            connection.distance = random.Next(300, 3000);
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(connection);
+                    transaction.Commit();
+                }
+            }
+
+            return true;
+        }
+
+        public static Connection GetConnection(int start, int end)
+        {
+            Connection connection = new Connection();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    connection = session.Query<Connection>().Where(x => x.idAirportStart == start && x.idAirportEnd == end).First();
+                }
+            }
+
+            return connection;
+        }
+
+        public static List<Connection> GetConnections()
+        {
+            List<Connection> list = new List<Connection>();
+
+            using(ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<Connection>().ToList();
                 }
             }
 

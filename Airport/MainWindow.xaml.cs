@@ -41,6 +41,9 @@ namespace Airport
 
             NHiberControl.RefreshTables();
             FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
+            NHiberControl.LoadClients();
+            //NHiberControl.RefreshTables();
+            FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
             GameStats.account = 100000;
         }
 

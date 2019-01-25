@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Airport.Model;
+
 namespace Airport.Page.Firm
 {
     /// <summary>
@@ -23,6 +25,45 @@ namespace Airport.Page.Firm
         public FlightsPage()
         {
             InitializeComponent();
+            FillCombos();
+            Connecitons_DataGrid.ItemsSource = FirmNHiberControl.GetConnections();
+        }
+
+        private void FillCombos()
+        {
+            var list = FirmNHiberControl.GetAirports();
+            foreach (var item in list)
+            {
+                Start_Combo.Items.Add(item);
+                End_Combo.Items.Add(item);
+            }
+        }
+
+        private void MakeConnection_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Airport start = (Start_Combo.SelectedItem as Model.Airport);
+            Model.Airport end = (End_Combo.SelectedItem as Model.Airport);
+            if (start == null || end == null)
+            {
+                MessageBox.Show("Wybierz początek i koniec.");
+                return;
+            }
+            if (start != end)
+            {
+                if (FirmNHiberControl.MakeConnection(start, end))
+                {
+                    MessageBox.Show("Połączenie utworzone :)");
+                    Connecitons_DataGrid.ItemsSource = FirmNHiberControl.GetConnections();
+                }
+                else
+                {
+                    MessageBox.Show("Takie połączenie już istnieje");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lotnisko nie może być jednocześnie początkiem i końcem.");
+            }
         }
     }
 }
