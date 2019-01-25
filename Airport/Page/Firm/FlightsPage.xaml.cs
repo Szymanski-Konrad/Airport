@@ -70,7 +70,7 @@ namespace Airport.Page.Firm
 
         private void MakeFlight_Click(object sender, RoutedEventArgs e)
         {
-            if (End_DatePicker.SelectedDate != null && Start_DatePicker.SelectedDate != null)
+            if (End_DatePicker.SelectedDate == null && Start_DatePicker.SelectedDate == null)
             {
                 MessageBox.Show("Najpierw wybierz daty");
                 return;
