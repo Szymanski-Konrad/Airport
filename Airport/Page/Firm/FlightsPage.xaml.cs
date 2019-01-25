@@ -76,23 +76,26 @@ namespace Airport.Page.Firm
                 return;
             }
 
+            if (Plane_Combo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Wybierz samolot");
+                return;
+            }
+
             if(End_DatePicker.SelectedDate < Start_DatePicker.SelectedDate)
             {
                 MessageBox.Show("Data końcowa nie może być wcześniejsza od początkowej.");
                 return;
             }
 
-            Flight flight = new Flight();
-            flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
-            flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
-            flight.idConnection = selectedConnection.id;
-            flight.idPlane = Plane_Combo.SelectedIndex + 1;
             if (selectedConnection != null)
             {
                 Flight flight = new Flight();
                 flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
                 flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
                 flight.idConnection = selectedConnection.id;
+                Fleet fleet = Plane_Combo.SelectedItem as Fleet;
+                flight.idPlane = fleet.id;
 
                 FirmNHiberControl.SaveFlight(flight);
 
@@ -113,7 +116,7 @@ namespace Airport.Page.Firm
                 {
                     if (!item.isBusy)
                     {
-                        Plane_Combo.Items.Add(item.idPlane);
+                        Plane_Combo.Items.Add(item);
                     }
                 }
             }

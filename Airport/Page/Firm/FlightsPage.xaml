@@ -24,7 +24,7 @@
             <TextBlock Text="Data lądowania: " Margin="5"/>
             <DatePicker Name="End_DatePicker"/>
             <TextBlock Text="Samolot: " HorizontalAlignment="Center" Margin="55,0"/>
-            <ComboBox x:Name="Plane_Combo" Margin="10"/>
+            <ComboBox Name="Plane_Combo" Margin="10"/>
             <Button Content="Stwórz lot" Margin="5" Click="MakeFlight_Click"/>
             <Button Content="Przejdź do nowych połączeń" Click="Hide_Click"/>
         </StackPanel>
