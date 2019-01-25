@@ -22,6 +22,8 @@ namespace Airport.Page.Firm
     /// </summary>
     public partial class FlightsPage : UserControl
     {
+        Connection selectedConnection;
+
         public FlightsPage()
         {
             InitializeComponent();
@@ -64,6 +66,32 @@ namespace Airport.Page.Firm
             {
                 MessageBox.Show("Lotnisko nie może być jednocześnie początkiem i końcem.");
             }
+        }
+
+        private void MakeFlight_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Start_DatePicker.SelectedDate.ToString());
+            MessageBox.Show(End_DatePicker.SelectedDate.ToString());
+
+            selectedConnection = null;
+        }
+
+        private void Connecitons_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedConnection = Connecitons_DataGrid.SelectedItem as Connection;
+
+            if (selectedConnection != null)
+            {
+                NewConnection.Visibility = Visibility.Collapsed;
+                NewFlight.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Hide_Click(object sender, RoutedEventArgs e)
+        {
+            NewFlight.Visibility = Visibility.Collapsed;
+            NewConnection.Visibility = Visibility.Visible;
+            selectedConnection = null;
         }
     }
 }

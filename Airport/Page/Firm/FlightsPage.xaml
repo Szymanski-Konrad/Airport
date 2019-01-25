@@ -11,13 +11,21 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
+        <StackPanel Name="NewConnection" Grid.Column="0">
             <TextBlock Text="Start: " HorizontalAlignment="Center"/>
             <ComboBox Name="Start_Combo" Margin="10"/>
             <TextBlock Text="Koniec: " HorizontalAlignment="Center"/>
             <ComboBox Name="End_Combo" Margin="10"/>
             <Button Content="Stwórz połączenie" Margin="5" Click="MakeConnection_Click"/>
         </StackPanel>
-        <DataGrid Name="Connecitons_DataGrid" Grid.Column="1"/>
+        <StackPanel Name="NewFlight" Grid.Column="0" Visibility="Collapsed">
+            <TextBlock Text="Data startu: " Margin="5"/>
+            <DatePicker Name="Start_DatePicker"/>
+            <TextBlock Text="Data lądowania: " Margin="5"/>
+            <DatePicker Name="End_DatePicker"/>
+            <Button Content="Stwórz lot" Margin="5" Click="MakeFlight_Click"/>
+            <Button Content="Przejdź do nowych połączeń" Click="Hide_Click"/>
+        </StackPanel>
+        <DataGrid Name="Connecitons_DataGrid" Grid.Column="1" SelectionChanged="Connecitons_DataGrid_SelectionChanged"/>
     </Grid>
 </UserControl>
