@@ -49,7 +49,7 @@ namespace Airport.Page.Firm
                 if (plane.price <= GameStats.account)
                 {
                     FirmNHiberControl.BuyPlane(plane);
-                    GameStats.account -= plane.price;
+                    //GameStats.account -= plane.price;
                     MessageBox.Show(GameStats.account.ToString());
                 }
             }
