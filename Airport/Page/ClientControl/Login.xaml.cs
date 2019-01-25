@@ -38,5 +38,35 @@ namespace Airport.Page.ClientControl
                 MessageBox.Show("PODANE DANE SĄ NIEPRAWIDŁOWE");
             }
         }
+
+        private void Name_GotFocus(object sender, RoutedEventArgs e)
+        {
+            name.CaptureMouse();
+        }
+
+        private void Name_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            name.SelectAll();
+        }
+
+        private void Name_IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            name.SelectAll();
+        }
+
+        private void Surname_GotFocus(object sender, RoutedEventArgs e)
+        {
+            surname.CaptureMouse();
+        }
+
+        private void Surname_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            surname.SelectAll();
+        }
+
+        private void Surname_IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            surname.SelectAll();
+        }
     }
 }

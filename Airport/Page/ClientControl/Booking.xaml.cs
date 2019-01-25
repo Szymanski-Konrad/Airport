@@ -21,6 +21,8 @@ namespace Airport.Page.ClientControl
     /// </summary>
     public partial class Booking : UserControl
     {
+        Client client;
+        int? selectedFlight;
         public Booking()
         {
             InitializeComponent();
@@ -29,8 +31,19 @@ namespace Airport.Page.ClientControl
         public Booking(Client client)
         {
             InitializeComponent();
+            this.client = client;
             flightsBox.ItemsSource = NHiberControl.LoadFlightsToList();
             flightsBox.Items.Refresh();
+            selectedFlight = null;
+        }
+
+        private void FlightsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedFlight = flightsBox.SelectedIndex + 1;
+
+            NHiberControl.InsertBooking(int.Parse(selectedFlight.ToString()), client.id, 125f, 1);
+
+            Switcher.SwitchClient(new Page.ClientControl.Panel(client));
         }
     }
 }

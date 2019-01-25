@@ -18,7 +18,7 @@ namespace Airport.Model
         public override string ToString()
         {
 
-            return base.ToString();
+            return $"Połączenie: {NHiberControl.LoadConnectionsToList().Single(x=>x.id==idConnection).Name}.\tOdlot: {dateDeparture}.\tPrzylot: {dateArrival}.";
         }
     }
 }

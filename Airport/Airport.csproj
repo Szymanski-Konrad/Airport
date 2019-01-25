@@ -260,7 +260,7 @@
     <EmbeddedResource Include="Mapping\Discount.hbm.xml" />
     <EmbeddedResource Include="Mapping\Connection.hbm.xml" />
     <EmbeddedResource Include="Mapping\Client.hbm.xml" />
-    <Resource Include="Mapping\Booking.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Booking.hbm.xml" />
     <EmbeddedResource Include="Mapping\AirportService.hbm.xml" />
     <EmbeddedResource Include="Mapping\Airport.hbm.xml" />
   </ItemGroup>
