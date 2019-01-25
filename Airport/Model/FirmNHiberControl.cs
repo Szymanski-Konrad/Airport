@@ -15,6 +15,10 @@ namespace Airport.Model
             newPlane.capacityGasTank = plane.capacityGasTank;
             newPlane.idPlane = plane.id;
             newPlane.planeCondition = 100;
+            newPlane.isService = false;
+            newPlane.isBusy = false;
+            newPlane.fuel = 100;
+            newPlane.capacityGasTank = plane.capacityGasTank;
 
             using (ISession session = Session.OpenSession())
             {
@@ -36,11 +40,6 @@ namespace Airport.Model
                     transaction.Commit();
                 }
             }
-        }
-
-        public static void EditPlane(Fleet plane)
-        {
-
         }
 
         public static void BuyAirport(AirportMarket airport)
@@ -95,6 +94,18 @@ namespace Airport.Model
                     transaction.Commit();
                 }
              }
+        }
+
+        public static void TankFuel(Warehouse warehouse)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(warehouse);
+                    transaction.Commit();
+                }
+            }
         }
 
         public static Warehouse GetWarehouse(int id)
@@ -302,6 +313,89 @@ namespace Airport.Model
                     transaction.Commit();
                 }
             }
+        }
+
+        public static List<Fleet> GetFleetToService()
+        {
+            List<Fleet> list = new List<Fleet>();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    list = session.Query<Fleet>().Where(x => x.isService == false).ToList();
+                }
+            }
+
+            return list;
+        }
+
+        public static void FleetInService(Fleet fleet)
+        {
+            fleet.isService = true;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(fleet);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void FleetOutService(Fleet fleet)
+        {
+            fleet.isService = false;
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(fleet);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void SaveService(Service service)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(service);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static void RemoveService(Service service)
+        {
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(service);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public static Fleet GetFleetByID(int id)
+        {
+            Fleet fleet = new Fleet();
+
+            using (ISession session = Session.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    fleet = session.Query<Fleet>().Where(x => x.id == id).First();
+                    transaction.Commit();
+                }
+            }
+
+            return fleet;
         }
     }
 }

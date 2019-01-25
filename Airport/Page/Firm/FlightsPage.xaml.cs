@@ -70,17 +70,30 @@ namespace Airport.Page.Firm
 
         private void MakeFlight_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Start_DatePicker.SelectedDate.ToString());
-            MessageBox.Show(End_DatePicker.SelectedDate.ToString());
+            if (End_DatePicker.SelectedDate != null && Start_DatePicker.SelectedDate != null)
+            {
+                MessageBox.Show("Najpierw wybierz daty");
+                return;
+            }
 
-            Flight flight = new Flight();
-            flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
-            flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
-            flight.idConnection = selectedConnection.id;
+            if(End_DatePicker.SelectedDate < Start_DatePicker.SelectedDate)
+            {
+                MessageBox.Show("Data końcowa nie może być wcześniejsza od początkowej.");
+                return;
+            }
 
-            FirmNHiberControl.SaveFlight(flight);
+            if (selectedConnection != null)
+            {
+                Flight flight = new Flight();
+                flight.dateDeparture = (DateTime)Start_DatePicker.SelectedDate;
+                flight.dateArrival = (DateTime)End_DatePicker.SelectedDate;
+                flight.idConnection = selectedConnection.id;
 
-            selectedConnection = null;
+                FirmNHiberControl.SaveFlight(flight);
+
+                selectedConnection = null;
+                MessageBox.Show("Lot utworzony");
+            }
         }
 
         private void Connecitons_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

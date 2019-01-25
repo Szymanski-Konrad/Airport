@@ -12,6 +12,13 @@ namespace Airport.Model
         public int idPlane { get; set; }
         public int planeCondition { get; set; }
         public int capacityGasTank { get; set; }
+        public int fuel { get; set; }
         public bool isBusy { get; set; }
+        public bool isService { get; set; }
+
+        public override string ToString()
+        {
+            return "Stan: " + planeCondition + " : Bak - " + fuel + "/" + capacityGasTank;
+        }
     }
 }

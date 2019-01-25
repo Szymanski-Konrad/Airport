@@ -13,5 +13,7 @@ namespace Airport.Model
         public int idPlane { get; set; }
         public DateTime dateStart { get; set; }
         public DateTime dateEnd { get; set; }
+        public string serviceType { get; set; }
+
     }
 }

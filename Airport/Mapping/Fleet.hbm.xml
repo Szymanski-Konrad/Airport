@@ -10,6 +10,8 @@
     <property name="idPlane" column="idPlane" />
     <property name="planeCondition" column="planeCondition"/>
     <property name="capacityGasTank" column="capacityGasTank" />
+    <property name="fuel" column="fuel" />
     <property name="isBusy" column="isBusy" />
+    <property name="isService" column="isService" />
   </class>
 </hibernate-mapping>

@@ -31,6 +31,7 @@ namespace Airport.Page.Firm
             Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
             Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
             CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+            PlanesToSerivce_Combo.ItemsSource = FirmNHiberControl.GetFleetToService();
         }
 
         private void Fuel_Click(object sender, RoutedEventArgs e)
@@ -82,6 +83,68 @@ namespace Airport.Page.Firm
 
                 FirmNHiberControl.HireAirportWorker(airportService);
                 Airport_Workers.ItemsSource = FirmNHiberControl.GetAirportServices(Airport.id);
+            }
+        }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlanesToSerivce_Combo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Wybierz samolot do serwisowania");
+                return;
+            }
+
+            Fleet fleet = PlanesToSerivce_Combo.SelectedItem as Fleet;
+
+            string type = (ServiceType_Combo.SelectedItem as ComboBoxItem).Content.ToString();
+            Warehouse warehouse = FirmNHiberControl.GetWarehouse(Airport.id);
+
+            switch (type)
+            {
+                case "Serwis":
+                    Service service = new Service();
+                    service.serviceType = "Serwis";
+                    service.idPlane = fleet.id;
+                    service.idAirport = Airport.id;
+                    service.dateStart = DateTime.Today;
+                    service.dateEnd = DateTime.Today.AddDays(3);
+                    FirmNHiberControl.FleetInService(fleet);
+                    FirmNHiberControl.SaveService(service);
+                    Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
+                    break;
+                case "Tankowanie":
+                    if (fleet.capacityGasTank - fleet.fuel >= warehouse.fuelAmount)
+                    {
+                        MessageBox.Show("Nie ma tyle paliwa, żeby zatankować");
+                        return;
+                    }
+                    service = new Service();
+                    service.serviceType = "Tankowanie";
+                    service.idPlane = fleet.id;
+                    service.idAirport = Airport.id;
+                    service.dateStart = DateTime.Today;
+                    service.dateEnd = DateTime.Today.AddDays(1);
+                    warehouse.fuelAmount -= (fleet.capacityGasTank - fleet.fuel);
+                    FirmNHiberControl.TankFuel(warehouse);
+                    FirmNHiberControl.FleetInService(fleet);
+                    FirmNHiberControl.SaveService(service);
+                    Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
+                    break;
+            }
+            Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
+            CurrentFuel.Text = warehouse.fuelAmount + "/" + warehouse.capacityGasTank;
+            PlanesToSerivce_Combo.ItemsSource = FirmNHiberControl.GetFleetToService();
+        }
+
+        private void Service_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Service service = Service.SelectedItem as Service;
+            if (service != null)
+            {
+                Fleet fleet = FirmNHiberControl.GetFleetByID(service.idPlane);
+                FirmNHiberControl.FleetOutService(fleet);
+                FirmNHiberControl.RemoveService(service);
+                Service.ItemsSource = FirmNHiberControl.GetServicesFromAirport(Airport.id);
             }
         }
     }

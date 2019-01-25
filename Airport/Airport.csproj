@@ -114,9 +114,6 @@
     <Compile Include="Page\Firm\FlightsPage.xaml.cs">
       <DependentUpon>FlightsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\Firm\WorkersPage.xaml.cs">
-      <DependentUpon>WorkersPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Page\ClientControl\Panel.xaml.cs">
       <DependentUpon>Panel.xaml</DependentUpon>
     </Compile>
@@ -184,10 +181,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\Firm\FlightsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page\Firm\WorkersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

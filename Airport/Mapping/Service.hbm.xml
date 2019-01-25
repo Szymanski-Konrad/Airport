@@ -11,5 +11,6 @@
     <property name="idPlane" column="idPlane" />
     <property name="dateStart" column="dateStart" />
     <property name="dateEnd" column="dateEnd" />
+    <property name="serviceType" column="serviceType" />
   </class>
 </hibernate-mapping>
