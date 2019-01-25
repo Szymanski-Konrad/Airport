@@ -11,7 +11,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Name="NewConnection" Grid.Column="0">
+        <StackPanel Name="NewConnection" Grid.Column="0" Visibility="Visible">
             <TextBlock Text="Start: " HorizontalAlignment="Center"/>
             <ComboBox Name="Start_Combo" Margin="10"/>
             <TextBlock Text="Koniec: " HorizontalAlignment="Center"/>
@@ -23,6 +23,8 @@
             <DatePicker Name="Start_DatePicker"/>
             <TextBlock Text="Data lądowania: " Margin="5"/>
             <DatePicker Name="End_DatePicker"/>
+            <TextBlock Text="Samolot: " HorizontalAlignment="Center" Margin="55,0"/>
+            <ComboBox x:Name="Plane_Combo" Margin="10"/>
             <Button Content="Stwórz lot" Margin="5" Click="MakeFlight_Click"/>
             <Button Content="Przejdź do nowych połączeń" Click="Hide_Click"/>
         </StackPanel>
