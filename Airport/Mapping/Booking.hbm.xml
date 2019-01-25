@@ -8,6 +8,7 @@
       <generator class="native" />
     </id>
     <property name="idFlight" column="idFlight"/>
+    <property name="idClient" column="idClient"/>
     <property name="price" column="price" />
     <property name="seats" column="seats" />
   </class>

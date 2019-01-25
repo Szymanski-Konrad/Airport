@@ -31,6 +31,14 @@ namespace Airport
             //NHiberControl.LoadGames();
             //NHiberControl.InsertFirm();
             NHiberControl.SaveClient();
+            NHiberControl.SaveAirport("Bialystok");
+            NHiberControl.SaveAirport("Kolno");
+            NHiberControl.SaveConnection();
+            NHiberControl.SaveFlight();
+            NHiberControl.SaveBooking();
+
+            NHiberControl.RefreshTables();
+            FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());
             NHiberControl.LoadClients();
             //NHiberControl.RefreshTables();
             FirmNHiberControl.SaveAirportMarkets(CustomData.GetBuyAirportList());

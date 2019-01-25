@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Airport.Model
 {
-    class Booking
+    public class Booking
     {
         public int id { get; set; }
         public int idFlight { get; set; }
+        public int idClient { get; set; }
         public float price { get; set; }
         public int seats { get; set; }
     }
