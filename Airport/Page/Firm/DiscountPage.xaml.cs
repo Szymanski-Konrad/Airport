@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airport.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,31 @@ namespace Airport.Page.Firm
     {
         public DiscountPage()
         {
+            Booking selectedBooking = null;
+
             InitializeComponent();
+            foreach (var item in NHiberControl.LoadBookingsToList())
+            {
+                Bookings_Combo.Items.Add(item);
+            }
+
+
+        }
+
+        private void Bookings_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Booking bk = Bookings_Combo.SelectedItem as Booking;
+            Booking booking = NHiberControl.LoadBookingsToList().Single(x => x.id == bk.id);
+            if (booking.price > 0)
+            {
+                booking.price -= .2f * booking.price;
+                MessageBox.Show($"New price equals {NHiberControl.LoadBookingsToList().Single(x => x.id == bk.id).price} $.");
+            }
+            Bookings_Combo.Items.Clear();
+            foreach (var item in NHiberControl.LoadBookingsToList())
+            {
+                Bookings_Combo.Items.Add(item);
+            }
         }
     }
 }

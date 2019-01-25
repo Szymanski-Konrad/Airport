@@ -41,7 +41,7 @@ namespace Airport.Page.ClientControl
         {
             selectedFlight = flightsBox.SelectedIndex + 1;
 
-            NHiberControl.InsertBooking(int.Parse(selectedFlight.ToString()), client.id, 125f, 1);
+            NHiberControl.InsertBooking(int.Parse(selectedFlight.ToString()), client.id);
 
             Switcher.SwitchClient(new Page.ClientControl.Panel(client));
         }

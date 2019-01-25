@@ -13,6 +13,15 @@ namespace Airport.Model
 {
     public static class NHiberControl
     {
+        public static void RefreshTables()
+        {
+            using (ISession session = Session.OpenSession())
+            {
+
+            }
+        }
+
+        #region Insert Methods
         public static void InsertFirm()
         {
             Firm firm = new Firm();
@@ -26,14 +35,6 @@ namespace Airport.Model
                     session.Save(firm);
                     transaction.Commit();
                 }
-            }
-        }
-
-        public static void RefreshTables()
-        {
-            using (ISession session = Session.OpenSession())
-            {
-
             }
         }
 
@@ -78,14 +79,14 @@ namespace Airport.Model
             Debug.Print("Insert connection to database.");
         }
 
-        public static void InsertBooking(int idFlight, int idClient, float price, int seats)
+        public static void InsertBooking(int idFlight, int idClient)
         {
             Debug.Print($"NHiberControl method InsertBooking called.");
             Booking booking = new Booking();
             booking.idFlight = idFlight;
             booking.idClient = idClient;
-            booking.price = price;
-            booking.seats = seats;
+            booking.price = 125;
+            booking.seats = 1;
 
             using (ISession session = Session.OpenSession())
             {
@@ -97,25 +98,47 @@ namespace Airport.Model
             }
             Debug.Print("Insert booking to database.");
         }
+        #endregion Insert Methods
 
-        public static void InsertFlight(int idConnection, int idPlane, DateTime dateDeparture, TimeSpan timeRequired)
+        #region Load Methods
+        public static List<Airport> LoadAirportsToList()
         {
-            Debug.Print($"NHiberControl method InsertBooking called.");
-            Flight flight = new Flight();
-            flight.idConnection = idConnection;
-            flight.idPlane = idPlane;
-            flight.dateDeparture = dateDeparture;
-            flight.dateArrival = flight.dateDeparture.Add(timeRequired);
-
+            Debug.Print($"NHiberControl method LoadAirportsToList called.");
             using (ISession session = Session.OpenSession())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                IQuery query = session.CreateQuery("from Airport order by name asc");
+                if (query != null)
                 {
-                    session.Save(flight);
-                    transaction.Commit();
+                    IList<Airport> airports = query.List<Airport>();
+                    Debug.Print("Connections found: " + airports.Count.ToString());
+                    return (List<Airport>)airports;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Airport>();
                 }
             }
-            Debug.Print("Insert booking to database.");
+        }
+
+        public static List<Booking> LoadBookingsToList()
+        {
+            Debug.Print($"NHiberControl method LoadBookingsToList called.");
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Booking order by id asc");
+                if (query != null)
+                {
+                    IList<Booking> bookings = query.List<Booking>();
+                    Debug.Print("Bookings found: " + bookings.Count.ToString());
+                    return (List<Booking>)bookings;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Booking>();
+                }
+            }
         }
 
         public static void LoadClients()
@@ -160,26 +183,6 @@ namespace Airport.Model
             }
         }
 
-        public static List<Flight> LoadFlightsToList()
-        {
-            Debug.Print($"NHiberControl method LoadFlightsToList called.");
-            using (ISession session = Session.OpenSession())
-            {
-                IQuery query = session.CreateQuery("from Flight order by id asc");
-                if (query != null)
-                {
-                    IList<Flight> flights = query.List<Flight>();
-                    Debug.Print("Flights found: " + flights.Count.ToString());
-                    return (List<Flight>)flights;
-                }
-                else
-                {
-                    Debug.Print("Query is null.");
-                    return new List<Flight>();
-                }
-            }
-        }
-
         public static List<Connection> LoadConnectionsToList()
         {
             Debug.Print($"NHiberControl method LoadConnectionsToList called.");
@@ -196,46 +199,6 @@ namespace Airport.Model
                 {
                     Debug.Print("Query is null.");
                     return new List<Connection>();
-                }
-            }
-        }
-
-        public static List<Airport> LoadAirportsToList()
-        {
-            Debug.Print($"NHiberControl method LoadAirportsToList called.");
-            using (ISession session = Session.OpenSession())
-            {
-                IQuery query = session.CreateQuery("from Airport order by name asc");
-                if (query != null)
-                {
-                    IList<Airport> airports = query.List<Airport>();
-                    Debug.Print("Connections found: " + airports.Count.ToString());
-                    return (List<Airport>)airports;
-                }
-                else
-                {
-                    Debug.Print("Query is null.");
-                    return new List<Airport>();
-                }
-            }
-        }
-
-        public static List<Booking> LoadBookingsToList()
-        {
-            Debug.Print($"NHiberControl method LoadBookingsToList called.");
-            using (ISession session = Session.OpenSession())
-            {
-                IQuery query = session.CreateQuery("from Booking order by id asc");
-                if (query != null)
-                {
-                    IList<Booking> bookings = query.List<Booking>();
-                    Debug.Print("Bookings found: " + bookings.Count.ToString());
-                    return (List<Booking>)bookings;
-                }
-                else
-                {
-                    Debug.Print("Query is null.");
-                    return new List<Booking>();
                 }
             }
         }
@@ -260,6 +223,26 @@ namespace Airport.Model
             }
         }
 
+        public static List<Flight> LoadFlightsToList()
+        {
+            Debug.Print($"NHiberControl method LoadFlightsToList called.");
+            using (ISession session = Session.OpenSession())
+            {
+                IQuery query = session.CreateQuery("from Flight order by id asc");
+                if (query != null)
+                {
+                    IList<Flight> flights = query.List<Flight>();
+                    Debug.Print("Flights found: " + flights.Count.ToString());
+                    return (List<Flight>)flights;
+                }
+                else
+                {
+                    Debug.Print("Query is null.");
+                    return new List<Flight>();
+                }
+            }
+        }
+
         public static void LoadGames()
         {
             using (ISession session = Session.OpenSession())
@@ -273,7 +256,9 @@ namespace Airport.Model
                 }
             }
         }
+        #endregion Load Methods
 
+        #region Save Methods
         public static void SaveGame()
         {
             //Product product = new Product();
@@ -357,25 +342,6 @@ namespace Airport.Model
             }
         }
 
-        public static void SaveFlight()
-        {
-            Debug.Print($"NHiberControl method SaveFlight called.");
-            Flight flight= new Flight();
-            flight.idConnection = LoadConnectionsToList().First().id;
-            flight.dateDeparture = new DateTime(2019, 1, 25, 7, 30, 52);
-            flight.dateArrival = flight.dateDeparture.Add(new TimeSpan(2, 20, 0));
-
-            using (ISession session = Session.OpenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    session.Save(flight);
-                    transaction.Commit();
-                    Debug.Print("Saved flight to database.");
-                }
-            }
-        }
-
         public static void SaveConnection()
         {
             Debug.Print($"NHiberControl method SaveConnection called.");
@@ -395,5 +361,6 @@ namespace Airport.Model
                 }
             }
         }
+        #endregion Save Methods
     }
 }
