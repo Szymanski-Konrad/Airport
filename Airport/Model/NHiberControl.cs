@@ -306,7 +306,7 @@ namespace Airport.Model
             Booking booking = new Booking();
             booking.idFlight = 1;
             booking.idClient = 1;
-            booking.price = 240f;
+            booking.price = 240;
             booking.seats = 2;
 
 

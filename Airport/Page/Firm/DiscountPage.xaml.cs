@@ -23,8 +23,6 @@ namespace Airport.Page.Firm
     {
         public DiscountPage()
         {
-            Booking selectedBooking = null;
-
             InitializeComponent();
             foreach (var item in NHiberControl.LoadBookingsToList())
             {
@@ -36,17 +34,25 @@ namespace Airport.Page.Firm
 
         private void Bookings_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Booking bk = Bookings_Combo.SelectedItem as Booking;
-            Booking booking = NHiberControl.LoadBookingsToList().Single(x => x.id == bk.id);
-            if (booking.price > 0)
+            if (Bookings_Combo.SelectedIndex >= 0)
             {
-                booking.price -= .2f * booking.price;
-                MessageBox.Show($"New price equals {NHiberControl.LoadBookingsToList().Single(x => x.id == bk.id).price} $.");
-            }
-            Bookings_Combo.Items.Clear();
-            foreach (var item in NHiberControl.LoadBookingsToList())
-            {
-                Bookings_Combo.Items.Add(item);
+                Booking bk = Bookings_Combo.SelectedItem as Booking;
+
+                if (bk != null)
+                {
+                    Booking booking = NHiberControl.LoadBookingsToList().Single(x => x.id == bk.id);
+                    if (booking.price > 0)
+                    {
+                        booking.price = booking.price - (int)(.2f * booking.price);
+                        MessageBox.Show($"New price equals {booking.price} $.");
+                    }
+                    FirmNHiberControl.UpdateBooking(booking);
+                    Bookings_Combo.Items.Clear();
+                    foreach (var item in NHiberControl.LoadBookingsToList())
+                    {
+                        Bookings_Combo.Items.Add(item);
+                    }
+                }
             }
         }
     }
